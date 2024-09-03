@@ -1,0 +1,25 @@
+<div class="h-screen">
+  <.flash_group flash={@flash} />
+  <header>
+    <nav class="bg-white drop-shadow-md pt-4 pb-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between">
+          <div>
+            <p>Texas Ferret Lover's Rescue</p>
+          </div>
+          <div>
+            <button class="mr-3 font-light text-zinc-500">Home</button>
+            <button class="mr-3 font-light text-zinc-500">Adopt</button>
+            <button class="mr-3 font-light text-zinc-500">Ferrets</button>
+            <button class="mr-3 font-light text-zinc-500">Fosters</button>
+            <button class="mr-3 font-light text-zinc-500">Resources</button>
+            <button class="font-light text-zinc-500">Contacts</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="h-full">
+    <%= @inner_content %>
+  </main>
+</div>
