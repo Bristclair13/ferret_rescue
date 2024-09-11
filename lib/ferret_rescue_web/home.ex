@@ -3,8 +3,8 @@ defmodule FerretRescueWeb.Live.Home do
 
   def render(assigns) do
     ~H"""
-    <div class="h-full bg-[url('/images/tree_bark.png')]  bg-repeat">
-      <div class="flex items-center border-4 border-black bg-white max-w-6xl mx-auto">
+    <div class="h-full bg-[url('/images/tree_bark.png')]  bg-repeat p-6">
+      <div class="flex items-center  border-2 border-black shadow-xl bg-white max-w-6xl mx-auto h-52">
         <div>
           <img src="/images/logo.jpg" class="h-32 pl-4" />
         </div>
@@ -19,7 +19,7 @@ defmodule FerretRescueWeb.Live.Home do
           <img src="/images/logo.jpg" class="h-32 pr-4" />
         </div>
       </div>
-      <div class="flex justify-between  max-w-6xl mx-auto h-32 box-shadow-md mt-6">
+      <div class="flex justify-between  max-w-6xl mx-auto h-32 mt-6">
         <img src="/images/ferret-1.jpg" />
         <img src="/images/ferret-2.jpg" />
         <img src="/images/ferret-3.jpg" />
