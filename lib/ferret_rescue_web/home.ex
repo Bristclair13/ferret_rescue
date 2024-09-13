@@ -29,18 +29,32 @@ defmodule FerretRescueWeb.Live.Home do
         <img src="/images/ferret-5.jpg" />
         <img src="/images/ferret-6.jpg" />
       </div>
-      <div class="flex max-w-6xl justify-between mx-auto border-2 border-black mt-6">
+      <div class="flex max-w-6xl justify-between mx-auto  mt-6">
         <div>
-          <button class="px-24 py-6 border-2 border-black bg-lime-100">Apply to Adopt</button>
+          <button class="px-24 py-6 text-3xl mt-4 w-fit bg-lime-100 hover:bg-green-600">
+            Apply to Adopt
+          </button>
+        </div>
+        <div class=" bg-white h-32 w-fit">
+          <div class="flex">
+            <div class="flex flex-col">
+              <p>$</p>
+              <form>
+                <input id="donate" type="text" placeholder="amount" />
+                <label for="donate"></label>
+              </form>
+            </div>
+            <div>
+              <button class="w-24 py-0.5 px-0.5 bg-green-600 hover:bg-green-700 rounded-md text-white">
+                Donate
+              </button>
+            </div>
+          </div>
         </div>
         <div>
-          <form>
-            <input id="donate" type="text" placeholder="amount" />
-            <label for="donate"></label>
-          </form>
-        </div>
-        <div>
-          <button class="px-24 py-6 border-2 border-black bg-lime-100">Contact Us</button>
+          <button class="px-24 py-6 mt-4 w-fit text-3xl bg-lime-100 hover:bg-green-600">
+            Contact Us
+          </button>
         </div>
       </div>
     </div>
