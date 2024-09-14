@@ -58,45 +58,45 @@ defmodule FerretRescueWeb.Live.Home do
         </div>
       </div>
       <div class="flex max-w-6xl mx-auto">
-        <div class="flex flex-col border-2 border-black p-4 mr-6 bg-white">
-          <h2>About Us</h2>
+        <div class="flex flex-col shadow-lg drop-shadow-lg p-4 mr-6 bg-white">
+          <h2 class="text-3xl">About Us</h2>
           <p>
             We are a rescue group that takes in homeless, abandoned, and needy ferrets. We evaluate them, get them current on shots, and any medical treatment they may need before finding them a forever home. We are not a business, but a volunteer organization.
           </p>
         </div>
-        <div class="flex flex-col border-2 border-black p-4 mr-6 bg-white">
-          <h2>Foster Program</h2>
+        <div class="flex flex-col shadow-lg drop-shadow-lg p-4 mr-6 bg-white">
+          <h2 class="text-3xl">Foster Program</h2>
           <p>
             Some of the ferrets that are surrendered to us are either too old or have illnesses that make them "undesirable" to others. Since we are a NO KILL SHELTER, we place these ferrets in a safe, loving, forever foster home to live out the rest of their lives as comfortably as we can make it. To learn more about sponsoring or fostering these ferrets please click the button below.
           </p>
         </div>
-        <div class="flex flex-col border-2 border-black p-4 bg-white">
-          <h2>Surrender</h2>
+        <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white">
+          <h2 class="text-3xl">Surrender</h2>
           <p>
             If you need to surrender your ferret, please call (972) 286-5778 to schedule an appointment. We ask for a $25 donation/ferret to help cover medical expenses, such as rabies, distemper and microchipping.
           </p>
         </div>
       </div>
       <div class="flex justify-between max-w-6xl mx-auto pt-6">
-        <div class="flex flex-col border-2 border-black w-1/2 ">
+        <div class="flex flex-col justify-between shadow-lg drop-shadow-lg w-1/2">
           <div>
-            <h3>We are proud members of the following organizations</h3>
+            <h3 class="text-center text-2xl">We are proud members of the following organizations</h3>
           </div>
-          <div class="flex">
+          <div class="flex mx-auto">
             <img src="/images/tasc-logo.jpg" class="w-32 h-36" />
             <img src="/images/sos-logo.gif" class="w-40 h-36" />
             <img src="/images/afa-logo.jpg" class="w-36 h-36" />
           </div>
-          <div class="flex">
-            <img src="/images/bissel-logo.jpg" class="w-48 h-36" />
+          <div class="flex mx-auto">
+            <img src="/images/bissell-logo.jpg" class="w-48 h-36" />
             <img src="/images/lost-pet-logo.jpg" class="w-72 h-36" />
           </div>
         </div>
         <div class="flex flex-col w-1/2">
-          <img src="/images/amazon-smile.png" />
+          <img src="/images/amazon-smile.png" class="pl-4" />
           <div>
-            <p>We are distributors for the following food brand</p>
-            <img src="/images/tf-logo.jpg" />
+            <p class="text-center text-2xl">We are distributors for the following food brand</p>
+            <img src="/images/tf-logo.jpg" class="w-36 h-24 mx-auto" />
           </div>
         </div>
       </div>
