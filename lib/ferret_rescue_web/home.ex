@@ -3,8 +3,8 @@ defmodule FerretRescueWeb.Live.Home do
 
   def render(assigns) do
     ~H"""
-    <div class="h-full bg-[url('/images/tree_bark.png')]  bg-repeat p-6">
-      <div class="flex items-center shadow-lg drop-shadow-lg bg-white max-w-6xl mx-auto h-52">
+    <div class="min-h-screen bg-[url('/images/tree_bark.png')] bg-repeat p-6">
+      <div class="flex items-center shadow-lg drop-shadow-lg bg-white max-w-[1110px] mx-auto h-52">
         <div>
           <img src="/images/logo.jpg" class="h-36 pl-4" />
         </div>
@@ -21,7 +21,7 @@ defmodule FerretRescueWeb.Live.Home do
           <img src="/images/logo.jpg" class="h-36 pr-4" />
         </div>
       </div>
-      <div class="flex justify-between max-w-6xl mx-auto h-40 mt-6">
+      <div class="flex justify-between max-w-[1110px] mx-auto h-40 mt-6">
         <img src="/images/ferret-1.jpg" class="w-40" />
         <img src="/images/ferret-2.jpg" class="w-40" />
         <img src="/images/ferret-3.jpg" class="w-40" />
@@ -29,23 +29,23 @@ defmodule FerretRescueWeb.Live.Home do
         <img src="/images/ferret-5.jpg" class="w-40" />
         <img src="/images/ferret-6.jpg" class="w-40" />
       </div>
-      <div class="flex max-w-6xl justify-between mx-auto mt-6 mb-6">
+      <div class="flex max-w-[1110px] justify-between mx-auto mt-6 mb-6">
         <div>
-          <button class="px-24 py-6 text-3xl mt-4 bg-lime-100 hover:bg-green-600">
+          <button class="px-16 py-6 text-3xl mt-4 bg-lime-100 hover:bg-green-600">
             Apply to Adopt
           </button>
         </div>
         <div class=" bg-white h-32">
-          <div class="flex">
-            <div class="flex flex-col">
-              <p>$</p>
+          <div class="flex px-6">
+            <div class="flex flex-col pt-6">
+              <p class="text-center">$</p>
               <form>
                 <input id="donate" type="text" placeholder="amount" />
                 <label for="donate"></label>
               </form>
             </div>
             <div>
-              <button class="w-24 py-0.5 px-0.5 bg-green-600 hover:bg-green-700 rounded-md text-white">
+              <button class="ml-2 mt-12 p-2 bg-green-600 hover:bg-green-700 rounded-md text-white">
                 Donate
               </button>
             </div>
@@ -57,7 +57,7 @@ defmodule FerretRescueWeb.Live.Home do
           </button>
         </div>
       </div>
-      <div class="flex max-w-6xl mx-auto">
+      <div class="flex max-w-[1110px] mx-auto">
         <div class="flex flex-col shadow-lg drop-shadow-lg p-4 mr-6 bg-white">
           <h2 class="text-3xl">About Us</h2>
           <p>
@@ -77,8 +77,8 @@ defmodule FerretRescueWeb.Live.Home do
           </p>
         </div>
       </div>
-      <div class="flex justify-between max-w-6xl mx-auto pt-6">
-        <div class="flex flex-col justify-between shadow-lg drop-shadow-lg w-1/2">
+      <div class="flex justify-between max-w-[1110px] mx-auto pt-6">
+        <div class="flex flex-col justify-between shadow-lg drop-shadow-lg w-1/2 bg-white">
           <div>
             <h3 class="text-center text-2xl">We are proud members of the following organizations</h3>
           </div>
@@ -94,11 +94,20 @@ defmodule FerretRescueWeb.Live.Home do
         </div>
         <div class="flex flex-col w-1/2">
           <img src="/images/amazon-smile.png" class="pl-4" />
-          <div>
+          <div class="shadow-lg drop-shadow-lg ml-4 mt-6 bg-white">
             <p class="text-center text-2xl">We are distributors for the following food brand</p>
             <img src="/images/tf-logo.jpg" class="w-36 h-24 mx-auto" />
           </div>
         </div>
+      </div>
+      <div class="m-6 mx-auto embed-responsive embed-responsive-16by9">
+        <iframe
+          class="embed-responsive-item"
+          src="https://www.youtube.com/embed/SDsC9CF1jXI"
+          title="SDsC9CF1jXI"
+          allowfullscreen=""
+        >
+        </iframe>
       </div>
     </div>
     """
