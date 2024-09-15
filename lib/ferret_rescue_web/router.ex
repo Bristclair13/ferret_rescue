@@ -18,6 +18,7 @@ defmodule FerretRescueWeb.Router do
     pipe_through :browser
 
     live "/", Home
+    live "/adopt", Adopt
   end
 
   # Other scopes may use custom stacks.
