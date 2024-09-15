@@ -31,7 +31,7 @@ defmodule FerretRescueWeb.Live.Home do
       </div>
       <div class="flex max-w-[1110px] justify-between mx-auto mt-6 mb-6">
         <div>
-          <button class="px-16 py-6 text-3xl mt-4 bg-lime-100 hover:bg-green-600">
+          <button class="w-[350px] h=[89px] px-16 py-6 text-3xl mt-4 bg-lime-100 hover:bg-green-600">
             Apply to Adopt
           </button>
         </div>
@@ -52,26 +52,26 @@ defmodule FerretRescueWeb.Live.Home do
           </div>
         </div>
         <div>
-          <button class="px-24 py-6 mt-4 text-3xl bg-lime-100 hover:bg-green-600">
+          <button class="w-[350px] h=[89px] px-24 py-6 mt-4 text-3xl bg-lime-100 hover:bg-green-600">
             Contact Us
           </button>
         </div>
       </div>
-      <div class="flex max-w-[1110px] mx-auto">
-        <div class="flex flex-col shadow-lg drop-shadow-lg p-4 mr-6 bg-white">
-          <h2 class="text-3xl">About Us</h2>
+      <div class="flex max-w-[1110px] mx-auto justify-between">
+        <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white w-[350px]">
+          <h2 class="text-3xl pb-4">About Us</h2>
           <p>
             We are a rescue group that takes in homeless, abandoned, and needy ferrets. We evaluate them, get them current on shots, and any medical treatment they may need before finding them a forever home. We are not a business, but a volunteer organization.
           </p>
         </div>
-        <div class="flex flex-col shadow-lg drop-shadow-lg p-4 mr-6 bg-white">
-          <h2 class="text-3xl">Foster Program</h2>
+        <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white w-[350px]">
+          <h2 class="text-3xl pb-4">Foster Program</h2>
           <p>
             Some of the ferrets that are surrendered to us are either too old or have illnesses that make them "undesirable" to others. Since we are a NO KILL SHELTER, we place these ferrets in a safe, loving, forever foster home to live out the rest of their lives as comfortably as we can make it. To learn more about sponsoring or fostering these ferrets please click the button below.
           </p>
         </div>
-        <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white">
-          <h2 class="text-3xl">Surrender</h2>
+        <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white w-[350px]">
+          <h2 class="text-3xl pb-4">Surrender</h2>
           <p>
             If you need to surrender your ferret, please call (972) 286-5778 to schedule an appointment. We ask for a $25 donation/ferret to help cover medical expenses, such as rabies, distemper and microchipping.
           </p>
@@ -100,9 +100,9 @@ defmodule FerretRescueWeb.Live.Home do
           </div>
         </div>
       </div>
-      <div class="m-6 mx-auto embed-responsive embed-responsive-16by9">
+      <div class="m-6 aspect-video">
         <iframe
-          class="embed-responsive-item"
+          class="embed-responsive-item w-[1110px] h-[624px] mx-auto"
           src="https://www.youtube.com/embed/SDsC9CF1jXI"
           title="SDsC9CF1jXI"
           allowfullscreen=""
