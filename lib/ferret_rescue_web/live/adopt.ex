@@ -1,6 +1,12 @@
 defmodule FerretRescueWeb.Live.Adopt do
   use FerretRescueWeb, :live_view
 
+  def mount(_params, session, socket) do
+    user = session["current_user"]
+    form = to_form(%{"ferret_questions" => ""})
+    {:ok, assign(socket, user: user, form: form)}
+  end
+
   def render(assigns) do
     ~H"""
     <div class="min-h-screen bg-[url('/images/tree_bark.png')] bg-repeat p-6">
@@ -20,6 +26,24 @@ defmodule FerretRescueWeb.Live.Adopt do
           We do not adopt to anyone less than 18 years of age. If you are less than 18, a parent must fill out this form and be the responsible party.
         </p>
         <h3 class="text-3xl">Personal Information</h3>
+        <.simple_form for={@form} phx-submit="ferret_questions">
+          <.input field={@form[:full_name]} label="Full Name" />
+          <.input field={@form[:age]} label="Age" />
+          <.input field={@form[:address]} label="Home Address" />
+          <.input field={@form[:city]} label="City" />
+          <.input field={@form[:state]} label="State" />
+          <.input field={@form[:zip_code]} label="Zip Code" />
+          <.input field={@form[:time_at_address]} label="How long at this address?" />
+          <.input field={@form[:primary_phone]} label="Primary Phone" />
+          <.input field={@form[:secondary_phone]} label="Secondary Phone (optional)" />
+          <.input field={@form[:email]} label="Email" />
+          <.input
+            field={@form[:people_living_at_house]}
+            label="How many people live at this house (or visit frequently such as grandchildren/stepchildren) and what are their ages?"
+          />
+          <.input field={@form[:type_of_home]} label="What type of home is this?" />
+          <.input field={@form[:own_home]} type="radio" label="Do you own this home?" />
+        </.simple_form>
       </div>
     </div>
     """
