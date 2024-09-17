@@ -42,7 +42,8 @@ defmodule FerretRescueWeb.Live.Adopt do
             label="How many people live at this house (or visit frequently such as grandchildren/stepchildren) and what are their ages?"
           />
           <.input field={@form[:type_of_home]} label="What type of home is this?" />
-          <.input field={@form[:own_home]} type="radio" label="Do you own this home?" />
+          <.input field={@form[:own_home]} id="own-home-yes" type="radio" label="Yes" value="yes" />
+          <.input field={@form[:own_home]} id="own-home-no" type="radio" label="No" value="no" />
         </.simple_form>
       </div>
     </div>
