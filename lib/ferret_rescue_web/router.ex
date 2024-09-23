@@ -23,6 +23,7 @@ defmodule FerretRescueWeb.Router do
     live "/foster", Foster
     live "/sitter", Sitter
     live "/vet", Vet
+    live "/faq", Faq
   end
 
   # Other scopes may use custom stacks.
