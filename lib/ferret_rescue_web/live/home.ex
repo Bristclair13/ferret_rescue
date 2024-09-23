@@ -44,14 +44,14 @@ defmodule FerretRescueWeb.Live.Home do
             </form>
           </div>
           <div>
-            <button class="ml-2 mt-12 p-2 bg-green-600 hover:bg-green-700 rounded-md text-white">
+            <button class="ml-2 mt-12 p-2 bg-emerald-600 hover:bg-emerald-700 rounded-md text-white">
               Donate
             </button>
           </div>
         </div>
       </div>
       <div>
-        <button class="w-[350px] h=[89px] px-24 py-6 mt-4 text-3xl bg-lime-100 hover:bg-green-600">
+        <button class="w-[350px] h=[89px] px-24 py-6 mt-4 text-3xl bg-emerald-200 hover:bg-emerald-300">
           Contact Us
         </button>
       </div>

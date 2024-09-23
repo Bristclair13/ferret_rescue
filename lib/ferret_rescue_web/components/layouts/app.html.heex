@@ -10,14 +10,14 @@
           <.link navigate={~p"/"} class="font-light text-zinc-500 p-2 hover:bg-emerald-100">
             Home
           </.link>
-          <.link navigate={~p"/adopt"} class="font-light text-zinc-500">
+          <.link navigate={~p"/adopt"} class="font-light text-zinc-500 p-2 hover:bg-emerald-100">
             Adopt
           </.link>
-          <button class="font-light text-zinc-500">Ferrets</button>
-          <.link navigate={~p"/foster"} class="font-light text-zinc-500">
+          <button class="font-light text-zinc-500 p-2 hover:bg-emerald-100">Ferrets</button>
+          <.link navigate={~p"/foster"} class="font-light text-zinc-500 p-2 hover:bg-emerald-100">
             Fosters
           </.link>
-          <.link navigate={~p"/contact"} class="font-light text-zinc-500">
+          <.link navigate={~p"/contact"} class="font-light text-zinc-500 p-2 hover:bg-emerald-100">
             Contact
           </.link>
           <div
@@ -27,7 +27,7 @@
             <div>
               <button
                 type="button"
-                class="inline-flex items-center w-full justify-center font-light text-zinc-500"
+                class="inline-flex items-center w-full justify-center font-light text-zinc-500 p-2 hover:bg-emerald-100"
                 aria-expanded="true"
                 aria-haspopup="true"
                 phx-click={toggle("#resource-links")}
@@ -45,10 +45,16 @@
               tabindex="-1"
             >
               <div class="py-1" role="none">
-                <.link navigate={~p"/vets"} class="block px-4 py-2 text-zinc-500">
+                <.link
+                  navigate={~p"/vet"}
+                  class="block px-4 py-2 text-zinc-500 p-2 hover:bg-emerald-100"
+                >
                   Vets
                 </.link>
-                <.link navigate={~p"/sitters"} class="block px-4 py-2 text-zinc-500">
+                <.link
+                  navigate={~p"/sitter"}
+                  class="block px-4 py-2 text-zinc-500 p-2 hover:bg-emerald-100"
+                >
                   Sitters
                 </.link>
               </div>
