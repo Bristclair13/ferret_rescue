@@ -18,6 +18,12 @@ defmodule FerretRescueWeb.Router do
     pipe_through :browser
 
     live "/", Home
+    live "/adopt", Adopt
+    live "/contact", Contact
+    live "/foster", Foster
+    live "/sitter", Sitter
+    live "/vet", Vet
+    live "/faq", Faq
   end
 
   # Other scopes may use custom stacks.

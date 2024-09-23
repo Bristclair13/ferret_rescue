@@ -1,25 +1,73 @@
-<div class="h-screen">
+<div class="min-h-screen bg-[url('/images/tree_bark.png')] bg-repeat">
   <.flash_group flash={@flash} />
   <header>
-    <nav class="bg-white shadow-lg drop-shadow-lg pt-4 h-14">
-      <div class="max-w-6xl mx-auto">
-        <div class="flex justify-between">
-          <div>
-            <p>Texas Ferret Lover's Rescue</p>
-          </div>
-          <div>
-            <button class="mr-3 font-light text-zinc-500">Home</button>
-            <button class="mr-3 font-light text-zinc-500">Adopt</button>
-            <button class="mr-3 font-light text-zinc-500">Ferrets</button>
-            <button class="mr-3 font-light text-zinc-500">Fosters</button>
-            <button class="mr-3 font-light text-zinc-500">Resources</button>
-            <button class="font-light text-zinc-500">Contacts</button>
+    <nav class="relative bg-white shadow-lg p-2">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <div>
+          <p>Texas Ferret Lover's Rescue</p>
+        </div>
+        <div class="flex gap-x-3 items-center">
+          <.link navigate={~p"/"} class="font-light text-zinc-500 p-2 hover:bg-emerald-100">
+            Home
+          </.link>
+          <.link navigate={~p"/adopt"} class="font-light text-zinc-500 p-2 hover:bg-emerald-100">
+            Adopt
+          </.link>
+          <button class="font-light text-zinc-500 p-2 hover:bg-emerald-100">Ferrets</button>
+          <.link navigate={~p"/foster"} class="font-light text-zinc-500 p-2 hover:bg-emerald-100">
+            Fosters
+          </.link>
+          <.link navigate={~p"/faq"} class="font-light text-zinc-500 p-2 hover:bg-emerald-100">
+            FAQ
+          </.link>
+          <.link navigate={~p"/contact"} class="font-light text-zinc-500 p-2 hover:bg-emerald-100">
+            Contact
+          </.link>
+          <div
+            class="relative inline-block text-left z-50"
+            phx-click-away={hide("#resource-links")}
+          >
+            <div>
+              <button
+                type="button"
+                class="inline-flex items-center w-full justify-center font-light text-zinc-500 p-2 hover:bg-emerald-100"
+                aria-expanded="true"
+                aria-haspopup="true"
+                phx-click={toggle("#resource-links")}
+              >
+                Resources <.icon name="hero-chevron-down-mini" class="h-5 w-5 text-zinc-500" />
+              </button>
+            </div>
+
+            <div
+              id="resource-links"
+              class="hidden absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="menu-button"
+              tabindex="-1"
+            >
+              <div class="py-1" role="none">
+                <.link
+                  navigate={~p"/vet"}
+                  class="block px-4 py-2 text-zinc-500 p-2 hover:bg-emerald-100"
+                >
+                  Vets
+                </.link>
+                <.link
+                  navigate={~p"/sitter"}
+                  class="block px-4 py-2 text-zinc-500 p-2 hover:bg-emerald-100"
+                >
+                  Sitters
+                </.link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </nav>
   </header>
-  <main class="h-full">
+  <main class="h-full p-6">
     <%= @inner_content %>
   </main>
 </div>
