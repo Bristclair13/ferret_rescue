@@ -72,7 +72,13 @@ defmodule FerretRescueWeb.Live.Home do
       <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white w-[350px]">
         <h2 class="text-3xl pb-4">Surrender</h2>
         <p>
-          If you need to surrender your ferret, please call (972) 286-5778 to schedule an appointment. We ask for a $25 donation/ferret to help cover medical expenses, such as rabies, distemper and microchipping.
+          If you need to surrender your ferret, please call
+          <span>
+            <a href="tel:+19722865778" class="hover:underline text-blue-400 hover:text-blue-500">
+              (972) 286-5778
+            </a>
+          </span>
+          to schedule an appointment. We ask for a $25 donation/ferret to help cover medical expenses, such as rabies, distemper and microchipping.
         </p>
       </div>
     </div>

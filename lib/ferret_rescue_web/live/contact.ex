@@ -16,7 +16,7 @@ defmodule FerretRescueWeb.Live.Contact do
       </div>
       <div class="mb-6">
         <h3 class="text-2xl mb-2">Or you can call us between 9AM and 7PM</h3>
-        <p>(972) 286-5778</p>
+        <a href="tel:+19722865778" class="hover:underline text-blue-400">(972) 286-5778</a>
       </div>
       <div class="mb-8">
         <p>

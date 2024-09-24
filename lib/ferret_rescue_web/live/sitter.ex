@@ -12,7 +12,9 @@ defmodule FerretRescueWeb.Live.Sitter do
         <div class="flex flex-col w-1/2 mt-6 mr-6 p-6 bg-white shadow-lg">
           <div class="flex justify-between">
             <p>Barbara Bullock</p>
-            <p>972-310-7440</p>
+            <a href="tel:+19723107440" class="hover:underline text-blue-400 hover:text-blue-500">
+              (972) 310-7440
+            </a>
           </div>
           <div>
             <p>txflrvp@gmail.com</p>
@@ -25,7 +27,9 @@ defmodule FerretRescueWeb.Live.Sitter do
         <div class="flex flex-col w-1/2 mt-6 p-6 bg-white shadow-lg">
           <div class="flex justify-between">
             <p>Jenn Solberg</p>
-            <p>214-336-9984</p>
+            <a href="tel:+12143369984" class="hover:underline text-blue-400 hover:text-blue-500">
+              214-336-9984
+            </a>
           </div>
           <div>
             <p>Jenn3246@att.net</p>
@@ -39,7 +43,9 @@ defmodule FerretRescueWeb.Live.Sitter do
       <div class="w-1/2 mt-6 p-6 bg-white shadow-lg">
         <div class="flex justify-between">
           <p>Kim Droptini</p>
-          <p>214-514-4411</p>
+          <a href="tel:+12145144411" class="hover:underline text-blue-400 hover:text-blue-500">
+            (214) 514-4411
+          </a>
         </div>
         <div>
           <p>Kdroptini@outlook.com</p>

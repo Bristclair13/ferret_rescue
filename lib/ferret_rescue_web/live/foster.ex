@@ -13,7 +13,14 @@ defmodule FerretRescueWeb.Live.Foster do
       <p class="mb-6">
         Fostered ferrets have no adoption fee and we cover their medical bills for life. You will only be responible for providing food, toys, and a forever home.
       </p>
-      <p>If you have any questions you can contact the rescue at (972) 286-5778.</p>
+      <p>
+        If you have any questions you can contact the rescue at
+        <span>
+          <a href="tel:+19722865778" class="hover:underline text-blue-400 hover:text-blue-500">
+            (972) 286-5778.
+          </a>
+        </span>
+      </p>
     </div>
     """
   end
