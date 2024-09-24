@@ -17,7 +17,12 @@ defmodule FerretRescueWeb.Live.Sitter do
             </a>
           </div>
           <div>
-            <p>txflrvp@gmail.com</p>
+            <a
+              href="mailto:txflrvp@gmail.com"
+              class="hover:underline text-blue-400 hover:text-blue-500"
+            >
+              txflrvp@gmail.com
+            </a>
             <p class="font-bold mt-3">Info:</p>
             <p class="font-light">
               Located in Plano area. Has private, separate room for the ferrets. Experience with medically challenged ferrets and behavioral issues.
@@ -32,7 +37,12 @@ defmodule FerretRescueWeb.Live.Sitter do
             </a>
           </div>
           <div>
-            <p>Jenn3246@att.net</p>
+            <a
+              href="mailto:Jenn3246@att.net"
+              class="hover:underline text-blue-400 hover:text-blue-500"
+            >
+              Jenn3246@att.net
+            </a>
             <p class="font-bold mt-3">Info:</p>
             <p class="font-light">
               Located in North Central Dallas. Serves DFW area. I have extensive experience with both Medical and behavior issues.
@@ -48,7 +58,12 @@ defmodule FerretRescueWeb.Live.Sitter do
           </a>
         </div>
         <div>
-          <p>Kdroptini@outlook.com</p>
+          <a
+            href="mailto:Kdroptini@outlook.com"
+            class="hover:underline text-blue-400 hover:text-blue-500"
+          >
+            Kdroptini@outlook.com
+          </a>
           <p class="font-bold mt-3">Info:</p>
           <p class="font-light">
             Tarrant County area. Foster for the rescue so I have experience with ferrets with medical needs.

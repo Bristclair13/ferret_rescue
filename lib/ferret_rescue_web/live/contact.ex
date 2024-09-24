@@ -12,7 +12,12 @@ defmodule FerretRescueWeb.Live.Contact do
       </div>
       <div class="flex flex-col mb-6">
         <h3 class="text-2xl mb-2">You can also email us at:</h3>
-        <p>txflroffice@gmail.com</p>
+        <a
+          href="mailto:txflroffice@gmail.com"
+          class="hover:underline text-blue-400 hover:text-blue-500"
+        >
+          txflroffice@gmail.com
+        </a>
       </div>
       <div class="mb-6">
         <h3 class="text-2xl mb-2">Or you can call us between 9AM and 7PM</h3>

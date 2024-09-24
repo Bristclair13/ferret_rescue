@@ -19,7 +19,12 @@ defmodule FerretRescueWeb.Live.Adopt do
         Applications are NOT ferret specific. We cannot guarantee availability of ferrets that are on our website.
       </p>
       <p class="mb-6">
-        We are a volunteer organization. Your application should only take a few days to process but may take several days depending on how quickly your references return our calls and on the volunteer's schedules. If you have any questions or wish to check on the status of your application please email txflrapplications@gmail.com.
+        We are a volunteer organization. Your application should only take a few days to process but may take several days depending on how quickly your references return our calls and on the volunteer's schedules. If you have any questions or wish to check on the status of your application please email <span><a
+            href="mailto:txflrapplications@gmail.com"
+            class="hover:underline text-blue-400 hover:text-blue-500"
+          >
+          txflrapplications@gmail.com
+          </a></span>.
       </p>
       <p class="mb-6">
         We do not adopt to anyone less than 18 years of age. If you are less than 18, a parent must fill out this form and be the responsible party.
