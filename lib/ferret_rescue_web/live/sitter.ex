@@ -71,7 +71,15 @@ defmodule FerretRescueWeb.Live.Sitter do
         </div>
       </div>
       <div class="w-1/2 mx-auto mt-6 text-lg">
-        For further ferret sitting options, see the Facebook page, Ferret Sitters Connections. https://www.facebook.com/groups/344263992897139
+        For further ferret sitting options, see the Facebook page, Ferret Sitters Connections.
+        <span>
+          <a
+            href="https://www.facebook.com/groups/344263992897139"
+            class="hover:underline text-blue-400 hover:text-blue-500"
+          >
+            https://www.facebook.com/groups/344263992897139
+          </a>
+        </span>
       </div>
     </div>
     """

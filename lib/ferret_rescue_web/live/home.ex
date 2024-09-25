@@ -3,9 +3,9 @@ defmodule FerretRescueWeb.Live.Home do
 
   def render(assigns) do
     ~H"""
-    <div class="flex items-center shadow-lg drop-shadow-lg bg-white max-w-[1110px] mx-auto h-52">
+    <div class="flex items-center shadow-lg drop-shadow-lg bg-white max-w-6xl mx-auto h-52">
       <div>
-        <img src="/images/logo.jpg" class="h-36 pl-4" />
+        <img src="/images/logo.jpg" class="h-36 ml-10" />
       </div>
       <div class="flex flex-col mx-auto">
         <p class="text-center text-4xl pb-2">Texas Ferret Lover's Rescue</p>
@@ -17,20 +17,20 @@ defmodule FerretRescueWeb.Live.Home do
         </button>
       </div>
       <div>
-        <img src="/images/logo.jpg" class="h-36 pr-4" />
+        <img src="/images/logo.jpg" class="h-36 mr-10" />
       </div>
     </div>
-    <div class="flex justify-between max-w-[1110px] mx-auto h-40 mt-6">
-      <img src="/images/ferret-1.jpg" class="w-40" />
-      <img src="/images/ferret-2.jpg" class="w-40" />
-      <img src="/images/ferret-3.jpg" class="w-40" />
-      <img src="/images/ferret-4.jpg" class="w-40" />
-      <img src="/images/ferret-5.jpg" class="w-40" />
-      <img src="/images/ferret-6.jpg" class="w-40" />
+    <div class="flex justify-between max-w-6xl mx-auto h-44 mt-6">
+      <img src="/images/ferret-1.jpg" class="w-44" />
+      <img src="/images/ferret-2.jpg" class="w-44" />
+      <img src="/images/ferret-3.jpg" class="w-44" />
+      <img src="/images/ferret-4.jpg" class="w-44" />
+      <img src="/images/ferret-5.jpg" class="w-44" />
+      <img src="/images/ferret-6.jpg" class="w-44" />
     </div>
-    <div class="flex max-w-[1110px] justify-between mx-auto mt-6 mb-6">
+    <div class="flex max-w-6xl justify-between mx-auto mt-6 mb-6">
       <div>
-        <button class="w-[350px] h=[89px] px-16 py-6 text-3xl mt-4 bg-emerald-200 hover:bg-emerald-300">
+        <button class="w-96 h=[89px] px-16 py-6 text-3xl mt-4 bg-emerald-200 hover:bg-emerald-300">
           Apply to Adopt
         </button>
       </div>
@@ -51,13 +51,13 @@ defmodule FerretRescueWeb.Live.Home do
         </div>
       </div>
       <div>
-        <button class="w-[350px] h=[89px] px-24 py-6 mt-4 text-3xl bg-emerald-200 hover:bg-emerald-300">
+        <button class="w-96 h=[89px] px-24 py-6 mt-4 text-3xl bg-emerald-200 hover:bg-emerald-300">
           Contact Us
         </button>
       </div>
     </div>
-    <div class="flex max-w-[1110px] mx-auto justify-between">
-      <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white w-[350px]">
+    <div class="flex max-w-6xl mx-auto justify-between">
+      <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white w-96">
         <h2 class="text-3xl pb-4">About Us</h2>
         <p>
           We are a rescue group that takes in homeless, abandoned, and needy ferrets. We evaluate them, get them current on shots, and any medical treatment they may need before finding them a forever home. We are not a business, but a volunteer organization.
@@ -66,10 +66,10 @@ defmodule FerretRescueWeb.Live.Home do
       <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white w-[350px]">
         <h2 class="text-3xl pb-4">Foster Program</h2>
         <p>
-          Some of the ferrets that are surrendered to us are either too old or have illnesses that make them "undesirable" to others. Since we are a NO KILL SHELTER, we place these ferrets in a safe, loving, forever foster home to live out the rest of their lives as comfortably as we can make it. To learn more about sponsoring or fostering these ferrets please click the button below.
+          Some of the ferrets that are surrendered to us are either too old or have illnesses that make them "undesirable" to others. Since we are a <span class="font-bold">NO KILL SHELTER</span>, we place these ferrets in a safe, loving, forever foster home to live out the rest of their lives as comfortably as we can make it. To learn more about sponsoring or fostering these ferrets please click the button below.
         </p>
       </div>
-      <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white w-[350px]">
+      <div class="flex flex-col shadow-lg drop-shadow-lg p-4 bg-white w-96">
         <h2 class="text-3xl pb-4">Surrender</h2>
         <p>
           If you need to surrender your ferret, please call
@@ -82,7 +82,7 @@ defmodule FerretRescueWeb.Live.Home do
         </p>
       </div>
     </div>
-    <div class="flex justify-between max-w-[1110px] mx-auto pt-6">
+    <div class="flex justify-between max-w-6xl mx-auto pt-6">
       <div class="flex flex-col justify-between shadow-lg drop-shadow-lg w-1/2 bg-white">
         <div>
           <h3 class="text-center text-2xl">We are proud members of the following organizations</h3>

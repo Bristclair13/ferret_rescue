@@ -3,7 +3,7 @@ defmodule FerretRescueWeb.Live.Contact do
 
   def render(assigns) do
     ~H"""
-    <div class="flex flex-col max-w-[1110px] bg-white text-center mx-auto shadow-lg drop-shadow-lg">
+    <div class="flex flex-col max-w-6xl bg-white text-center mx-auto shadow-lg drop-shadow-lg">
       <div class="flex flex-col my-6">
         <h3 class="text-2xl mb-2">You may write to us at the following address:</h3>
         <p>Texas Ferret Lover's Rescue</p>

@@ -9,9 +9,9 @@ defmodule FerretRescueWeb.Live.Adopt do
 
   def render(assigns) do
     ~H"""
-    <div class="text-3xl">Apply For Adoption</div>
+    <div class="text-3xl max-w-6xl mx-auto">Apply For Adoption</div>
     <div class="mt-2 shadow-lg bg-white max-w-6xl mx-auto p-6">
-      <p class="font-bold mb-6">Adoptions are done by appoitment only</p>
+      <p class="font-semibold mb-6">Adoptions are done by appoitment only</p>
       <p class="mb-6">
         Thank you for your interest in adopting from the Texas Ferret Lover’s Rescue. By filling out this application you are not committing to adopt a pet, but you are supplying the information that Texas Ferret Lover’s Rescue needs to evaluate you as a prospective adopter. You will be contacted by one of our volunteers by email. Please be sure to check your spam/junk folder.
       </p>
@@ -27,7 +27,8 @@ defmodule FerretRescueWeb.Live.Adopt do
           </a></span>.
       </p>
       <p class="mb-6">
-        We do not adopt to anyone less than 18 years of age. If you are less than 18, a parent must fill out this form and be the responsible party.
+        <span class="font-semibold">We do not adopt to anyone less than 18 years of age.</span>
+        If you are less than 18, a parent must fill out this form and be the responsible party.
       </p>
       <h3 class="text-3xl">Personal Information</h3>
       <.simple_form for={@form} phx-submit="ferret_questions">
