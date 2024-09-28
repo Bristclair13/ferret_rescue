@@ -3,7 +3,7 @@ defmodule FerretRescueWeb.Live.Contact do
 
   def render(assigns) do
     ~H"""
-    <div class="flex flex-col max-w-[1110px] bg-white text-center mx-auto shadow-lg drop-shadow-lg">
+    <div class="flex flex-col max-w-6xl bg-white text-center mx-auto shadow-lg drop-shadow-lg">
       <div class="flex flex-col my-6">
         <h3 class="text-2xl mb-2">You may write to us at the following address:</h3>
         <p>Texas Ferret Lover's Rescue</p>
@@ -12,11 +12,16 @@ defmodule FerretRescueWeb.Live.Contact do
       </div>
       <div class="flex flex-col mb-6">
         <h3 class="text-2xl mb-2">You can also email us at:</h3>
-        <p>txflroffice@gmail.com</p>
+        <a
+          href="mailto:txflroffice@gmail.com"
+          class="hover:underline text-blue-400 hover:text-blue-500"
+        >
+          txflroffice@gmail.com
+        </a>
       </div>
       <div class="mb-6">
         <h3 class="text-2xl mb-2">Or you can call us between 9AM and 7PM</h3>
-        <p>(972) 286-5778</p>
+        <a href="tel:+19722865778" class="hover:underline text-blue-400">(972) 286-5778</a>
       </div>
       <div class="mb-8">
         <p>

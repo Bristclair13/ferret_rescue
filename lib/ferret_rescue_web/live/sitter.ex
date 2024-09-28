@@ -12,10 +12,17 @@ defmodule FerretRescueWeb.Live.Sitter do
         <div class="flex flex-col w-1/2 mt-6 mr-6 p-6 bg-white shadow-lg">
           <div class="flex justify-between">
             <p>Barbara Bullock</p>
-            <p>972-310-7440</p>
+            <a href="tel:+19723107440" class="hover:underline text-blue-400 hover:text-blue-500">
+              (972) 310-7440
+            </a>
           </div>
           <div>
-            <p>txflrvp@gmail.com</p>
+            <a
+              href="mailto:txflrvp@gmail.com"
+              class="hover:underline text-blue-400 hover:text-blue-500"
+            >
+              txflrvp@gmail.com
+            </a>
             <p class="font-bold mt-3">Info:</p>
             <p class="font-light">
               Located in Plano area. Has private, separate room for the ferrets. Experience with medically challenged ferrets and behavioral issues.
@@ -25,10 +32,17 @@ defmodule FerretRescueWeb.Live.Sitter do
         <div class="flex flex-col w-1/2 mt-6 p-6 bg-white shadow-lg">
           <div class="flex justify-between">
             <p>Jenn Solberg</p>
-            <p>214-336-9984</p>
+            <a href="tel:+12143369984" class="hover:underline text-blue-400 hover:text-blue-500">
+              214-336-9984
+            </a>
           </div>
           <div>
-            <p>Jenn3246@att.net</p>
+            <a
+              href="mailto:Jenn3246@att.net"
+              class="hover:underline text-blue-400 hover:text-blue-500"
+            >
+              Jenn3246@att.net
+            </a>
             <p class="font-bold mt-3">Info:</p>
             <p class="font-light">
               Located in North Central Dallas. Serves DFW area. I have extensive experience with both Medical and behavior issues.
@@ -39,10 +53,17 @@ defmodule FerretRescueWeb.Live.Sitter do
       <div class="w-1/2 mt-6 p-6 bg-white shadow-lg">
         <div class="flex justify-between">
           <p>Kim Droptini</p>
-          <p>214-514-4411</p>
+          <a href="tel:+12145144411" class="hover:underline text-blue-400 hover:text-blue-500">
+            (214) 514-4411
+          </a>
         </div>
         <div>
-          <p>Kdroptini@outlook.com</p>
+          <a
+            href="mailto:Kdroptini@outlook.com"
+            class="hover:underline text-blue-400 hover:text-blue-500"
+          >
+            Kdroptini@outlook.com
+          </a>
           <p class="font-bold mt-3">Info:</p>
           <p class="font-light">
             Tarrant County area. Foster for the rescue so I have experience with ferrets with medical needs.
@@ -50,7 +71,15 @@ defmodule FerretRescueWeb.Live.Sitter do
         </div>
       </div>
       <div class="w-1/2 mx-auto mt-6 text-lg">
-        For further ferret sitting options, see the Facebook page, Ferret Sitters Connections. https://www.facebook.com/groups/344263992897139
+        For further ferret sitting options, see the Facebook page, Ferret Sitters Connections.
+        <span>
+          <a
+            href="https://www.facebook.com/groups/344263992897139"
+            class="hover:underline text-blue-400 hover:text-blue-500"
+          >
+            https://www.facebook.com/groups/344263992897139
+          </a>
+        </span>
       </div>
     </div>
     """
