@@ -18,26 +18,38 @@
           </.link>
           <.link
             navigate={~p"/adopt"}
-            class="font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100"
+            class={[
+              "font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100",
+              @active_tab == :adopt && "bg-emerald-200"
+            ]}
           >
             Adopt
           </.link>
           <button class="font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100">Ferrets</button>
           <.link
             navigate={~p"/foster"}
-            class="font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100"
+            class={[
+              "font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100",
+              @active_tab == :foster && "bg-emerald-200"
+            ]}
           >
             Fosters
           </.link>
           <.link
             navigate={~p"/faq"}
-            class="font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100"
+            class={[
+              "font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100",
+              @active_tab == :faq && "bg-emerald-200"
+            ]}
           >
             FAQ
           </.link>
           <.link
             navigate={~p"/contact"}
-            class="font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100"
+            class={[
+              "font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100",
+              @active_tab == :contact && "bg-emerald-200"
+            ]}
           >
             Contact
           </.link>
@@ -48,7 +60,10 @@
             <div>
               <button
                 type="button"
-                class="inline-flex items-center w-full justify-center font-light text-zinc-500 p-2 hover:bg-emerald-100"
+                class={[
+                  "inline-flex items-center w-full justify-center font-light text-zinc-500 p-2 hover:bg-emerald-100",
+                  @active_tab == :resources && "bg-emerald-200"
+                ]}
                 phx-click={toggle("#resource-links")}
               >
                 Resources <.icon name="hero-chevron-down-mini" class="h-5 w-5 text-zinc-500" />
