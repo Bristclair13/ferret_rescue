@@ -1,4 +1,4 @@
-defmodule FerretRescueWeb.Live.Vet do
+defmodule FerretRescueWeb.Live.Vets do
   use FerretRescueWeb, :live_view
 
   def render(assigns) do
