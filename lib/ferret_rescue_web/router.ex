@@ -14,16 +14,18 @@ defmodule FerretRescueWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", FerretRescueWeb.Live do
-    pipe_through :browser
+  live_session :default, on_mount: [FerretRescueWeb.Middleware.Nav.Hook] do
+    scope "/", FerretRescueWeb.Live do
+      pipe_through :browser
 
-    live "/", Home
-    live "/adopt", Adopt
-    live "/contact", Contact
-    live "/foster", Foster
-    live "/sitter", Sitter
-    live "/vet", Vet
-    live "/faq", Faq
+      live "/", Home
+      live "/adopt", Adopt
+      live "/contact", Contact
+      live "/foster", Foster
+      live "/sitter", Sitter
+      live "/vet", Vet
+      live "/faq", Faq
+    end
   end
 
   # Other scopes may use custom stacks.
