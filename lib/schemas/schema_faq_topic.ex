@@ -1,4 +1,4 @@
-defmodule FerretRescue.FAQ.Topic do
+defmodule FerretRescue.Schemas.Topic do
   @moduledoc """
   Schema for faq_content table.
   """
@@ -9,7 +9,7 @@ defmodule FerretRescue.FAQ.Topic do
     field :name, :string
     field :rank, :integer
 
-    has_many :questions, FerretRescue.FAQ.Content
+    has_many :questions, FerretRescue.Schemas.Content
 
     timestamps()
   end

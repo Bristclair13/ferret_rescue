@@ -1,4 +1,4 @@
-defmodule FerretRescue.Auth do
+defmodule FerretRescue.Schemas.Auth do
   @moduledoc """
   Schema for auth table.
   """

@@ -1,4 +1,4 @@
-defmodule FerretRescue.Resources.Sitter do
+defmodule FerretRescue.Schemas.Sitter do
   @moduledoc """
   Schema for sitters table.
   """

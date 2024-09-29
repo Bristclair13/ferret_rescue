@@ -1,4 +1,4 @@
-defmodule FerretRescue.Resources.Vet do
+defmodule FerretRescue.Schemas.Vet do
   @moduledoc """
   Schema for vets table.
   """

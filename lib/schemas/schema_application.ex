@@ -1,4 +1,4 @@
-defmodule FerretRescue.Application do
+defmodule FerretRescue.Schemas.Application do
   @moduledoc """
   Schema for applications table.
   """
@@ -49,7 +49,7 @@ defmodule FerretRescue.Application do
     field :vet_info, :string
     field :zip_code, :integer
 
-    has_many :messages, FerretRescue.Applications.Message
+    has_many :messages, FerretRescue.Schemas.Message
 
     timestamps()
   end

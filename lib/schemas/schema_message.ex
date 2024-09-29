@@ -1,4 +1,4 @@
-defmodule FerretRescue.Applications.Message do
+defmodule FerretRescue.Schemas.Message do
   @moduledoc """
   Schema for messages table.
   """
@@ -9,7 +9,7 @@ defmodule FerretRescue.Applications.Message do
   schema "messages" do
     field :message, :string
 
-    belongs_to :application, FerretRescue.Application
+    belongs_to :application, FerretRescue.Schemas.Application
 
     timestamps(inserted_at: :sent_at, updated_at: false)
   end
