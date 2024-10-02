@@ -1,6 +1,13 @@
 defmodule FerretRescueWeb.Live.Vets do
   use FerretRescueWeb, :live_view
 
+  alias FerretRescue.Resources.Vets.Storage
+
+  def mount(_params, _session, socket) do
+    vets = Storage.list_vets()
+    {:ok, assign(socket, vets: vets)}
+  end
+
   def render(assigns) do
     ~H"""
     <div class="flex flex-col max-w-6xl mx-auto">
@@ -25,7 +32,7 @@ defmodule FerretRescueWeb.Live.Vets do
         </div>
       </div>
       <h3 class="mt-6 text-center text-3xl">Ferret Specialists</h3>
-      <div class="flex">
+      <div :for={vet <- @vets} class="flex">
         <div class="flex flex-col w-1/2 mx-auto mt-6 p-6 bg-white shadow-lg mr-6">
           <div class="flex justify-between">
             <a
@@ -33,16 +40,16 @@ defmodule FerretRescueWeb.Live.Vets do
               class="hover:underline text-blue-400 hover:text-blue-500 text-xl"
               target="_blank"
             >
-              Bossier Animal Hospital - Bossier City
+              <%= vet.company_name() %>
             </a>
             <a href="tel:+13187467829" class="hover:underline text-blue-400 hover:text-blue-500">
-              (318) 746-7821
+              <%= vet.phone() %>
             </a>
           </div>
           <div class="mt-3">
-            <p>Dr. Larry Snyder</p>
-            <p>3308 Industrial Drive</p>
-            <p class="mt-3">Bossier City, LA 71112</p>
+            <p><%= vet.company_name() %></p>
+            <p><%= vet.street() %></p>
+            <p class="mt-3"><%= vet.city() %>, <%= vet.state() %>, <%= vet.zip() %></p>
           </div>
         </div>
         <div class="flex flex-col w-1/2 mx-auto mt-6 p-6 bg-white shadow-lg">
