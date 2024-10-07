@@ -1,6 +1,13 @@
 defmodule FerretRescueWeb.Live.Sitter do
   use FerretRescueWeb, :live_view
 
+  alias FerretRescue.Resources.Sitters.Storage
+
+  def mount(_params, _session, socket) do
+    sitters = Storage.list_sitters()
+    {:ok, assign(socket, sitters: sitters)}
+  end
+
   def render(assigns) do
     ~H"""
     <div class="flex flex-col max-w-6xl mx-auto">

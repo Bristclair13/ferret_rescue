@@ -1,4 +1,4 @@
-defmodule FerretRescue.Resources.Vets.Storage do
+defmodule FerretRescue.Resources.Sitters.Storage do
   import Ecto.Query
 
   alias FerretRescue.Schemas.Sitter
