@@ -6,6 +6,13 @@ defmodule FerretRescue.Schemas.Sitter do
 
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          email: String.t(),
+          name: String.t(),
+          notes: String.t(),
+          phone: String.t()
+        }
+
   schema "sitters" do
     field :email, :string
     field :name, :string
