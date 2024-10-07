@@ -32,29 +32,34 @@ defmodule FerretRescueWeb.Live.Vets do
         </div>
       </div>
       <h3 class="mt-6 text-center text-3xl">Ferret Specialists</h3>
-      <div :for={vet <- @vets} class="flex">
-        <div class="flex flex-col w-1/2 mx-auto mt-6 p-6 bg-white shadow-lg mr-6">
-          <div class="flex justify-between">
-            <div :if={is_nil(vet.website())}>
-              <p class="text-xl"><%= vet.company_name() %></p>
-            </div>
-            <div :if={not is_nil(vet.website())}>
+      <div class="grid grid-cols-2">
+        <div :for={vet <- @vets}>
+          <div class="flex flex-col mx-auto my-3 p-6 bg-white shadow-lg mx-3">
+            <div class="flex justify-between">
+              <div :if={is_nil(vet.website())}>
+                <p class="text-xl"><%= vet.company_name() %></p>
+              </div>
+              <div :if={not is_nil(vet.website())}>
+                <a
+                  href={vet.website()}
+                  class="hover:underline text-blue-400 hover:text-blue-500 text-xl"
+                  target="_blank"
+                >
+                  <%= vet.company_name() %>
+                </a>
+              </div>
               <a
-                href={vet.website()}
-                class="hover:underline text-blue-400 hover:text-blue-500 text-xl"
-                target="_blank"
+                href={"tel:+1#{vet.phone()}"}
+                class="hover:underline text-blue-400 hover:text-blue-500"
               >
-                <%= vet.company_name() %>
+                <%= vet.phone() %>
               </a>
             </div>
-            <a href={"tel:+1#{vet.phone()}"} class="hover:underline text-blue-400 hover:text-blue-500">
-              <%= vet.phone() %>
-            </a>
-          </div>
-          <div class="mt-3">
-            <p><%= vet.vet_name() %></p>
-            <p class="mt-3"><%= vet.street() %></p>
-            <p><%= vet.city() %>, <%= vet.state() %>, <%= vet.zip() %></p>
+            <div class="mt-3">
+              <p><%= vet.vet_name() %></p>
+              <p class="mt-3"><%= vet.street() %></p>
+              <p><%= vet.city() %>, <%= vet.state() %>, <%= vet.zip() %></p>
+            </div>
           </div>
         </div>
       </div>
