@@ -15,9 +15,9 @@ defmodule FerretRescueWeb.Live.Sitter do
       <p class="text-center font-light mt-6 bg-white p-6 shadow-lg">
         We do not guarantee any of these sitters, you are fully responsible for ensuring the sitter fits your needs. By using this website to find a sitter you agree to not hold us responsible for the actions of these sitters.
       </p>
-      <div :for={sitter <- @sitters}>
-        <div class="grid grid-cols-2">
-          <div class="flex flex-col mt-6 mr-6 p-6 bg-white shadow-lg border-2 border-black">
+      <div class="grid grid-cols-2">
+        <div :for={sitter <- @sitters}>
+          <div class="flex flex-col mt-6 mr-6 p-6 bg-white shadow-lg">
             <div class="flex justify-between">
               <p><%= sitter.name() %></p>
               <a href="tel:+19723107440" class="hover:underline text-blue-400 hover:text-blue-500">
