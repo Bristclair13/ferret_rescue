@@ -12,12 +12,12 @@ defmodule FerretRescueWeb.Live.Sitter do
     ~H"""
     <div class="flex flex-col max-w-6xl mx-auto">
       <h3 class="text-3xl text-center">Ferret Sitters</h3>
-      <p class="text-center font-light mt-6 bg-white p-6 shadow-lg">
+      <p class="text-center font-light my-6 bg-white p-6 shadow-lg">
         We do not guarantee any of these sitters, you are fully responsible for ensuring the sitter fits your needs. By using this website to find a sitter you agree to not hold us responsible for the actions of these sitters.
       </p>
-      <div class="grid grid-cols-2">
+      <div class="grid grid-cols-2 gap-6">
         <div :for={sitter <- @sitters}>
-          <div class="flex flex-col mt-6 mr-6 p-6 bg-white shadow-lg">
+          <div class="flex flex-col p-6 bg-white shadow-lg">
             <div class="flex justify-between">
               <p><%= sitter.name() %></p>
               <a href="tel:+19723107440" class="hover:underline text-blue-400 hover:text-blue-500">
@@ -39,6 +39,17 @@ defmodule FerretRescueWeb.Live.Sitter do
           </div>
         </div>
       </div>
+      <p class="mt-6 max-w-3xl mx-auto text-center text-xl">
+        For further ferret sitting options, see the Facebook page, Ferret Sitter Connections.
+        <span>
+          <a
+            href="https://www.facebook.com/groups/344263992897139"
+            class="hover:underline text-blue-400 hover:text-blue-500"
+          >
+            https://www.facebook.com/groups/344263992897139
+          </a>
+        </span>
+      </p>
     </div>
     """
   end
