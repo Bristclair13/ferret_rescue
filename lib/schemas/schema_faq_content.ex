@@ -5,6 +5,13 @@ defmodule FerretRescue.Schemas.Content do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          title: String.t(),
+          content: String.t(),
+          rank: integer(),
+          topic_id: String.t()
+        }
+
   schema "faq_content" do
     field :title, :string
     field :content, :string

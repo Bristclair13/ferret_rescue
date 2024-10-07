@@ -5,6 +5,11 @@ defmodule FerretRescue.Schemas.Topic do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          name: String.t(),
+          rank: integer()
+        }
+
   schema "faq_topics" do
     field :name, :string
     field :rank, :integer
