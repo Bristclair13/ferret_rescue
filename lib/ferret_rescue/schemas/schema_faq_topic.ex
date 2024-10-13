@@ -1,6 +1,6 @@
-defmodule FerretRescue.Schemas.Topic do
+defmodule FerretRescue.Schemas.FaqTopic do
   @moduledoc """
-  Schema for faq_content table.
+  Schema for faq_topic table.
   """
   use Ecto.Schema
   import Ecto.Changeset
@@ -14,14 +14,16 @@ defmodule FerretRescue.Schemas.Topic do
     field :name, :string
     field :rank, :integer
 
-    has_many :questions, FerretRescue.Schemas.Content
+    has_many :questions, FerretRescue.Schemas.FaqContent,
+      foreign_key: :topic_id,
+      preload_order: [:rank]
 
     timestamps()
   end
 
   def changeset(struct, params) do
     struct
-    |> cast(params, __schema__(:fields) -- [:id])
+    |> cast(params, [:name, :rank])
     |> validate_required([:name, :rank])
   end
 end

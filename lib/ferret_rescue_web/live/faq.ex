@@ -4,15 +4,17 @@ defmodule FerretRescueWeb.Live.Faq do
   alias FerretRescue.Faq.Storage
 
   def mount(_params, _session, socket) do
-    content = Storage.list_content()
     topics = Storage.list_topics()
-    {:ok, assign(socket, content: content, topics: topics)}
+    {:ok, assign(socket, topics: topics)}
   end
 
   def render(assigns) do
     ~H"""
-    <div :for={content <- @content}>
-      <div :for={topic <- @topics}></div>
+    <div :for={topic <- @topics} class="border-red-500 border-2">
+      <p><%= topic.name %></p>
+      <div :for={question <- topic.questions}>
+        <%= question.title %>
+      </div>
     </div>
     <div class="max-w-6xl mx-auto flex flex-col">
       <h3 class="text-3xl">Frequently Asked Questions</h3>
