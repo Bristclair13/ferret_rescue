@@ -18,6 +18,9 @@ defmodule FerretRescueWeb.Middleware.Nav.Hook do
         FerretRescueWeb.Live.Faq ->
           :faq
 
+        FerretRescueWeb.Live.Ferrets ->
+          :ferrets
+
         FerretRescueWeb.Live.Fosters ->
           :foster
 

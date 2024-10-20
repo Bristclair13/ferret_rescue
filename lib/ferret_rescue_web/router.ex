@@ -21,10 +21,11 @@ defmodule FerretRescueWeb.Router do
       live "/", Home
       live "/adopt", Adopt
       live "/contact", Contact
-      live "/foster", Fosters
-      live "/sitter", Sitters
-      live "/vet", Vets
+      live "/fosters", Fosters
+      live "/sitters", Sitters
+      live "/vets", Vets
       live "/faq", Faq
+      live "/ferrets", Ferrets
     end
   end
 

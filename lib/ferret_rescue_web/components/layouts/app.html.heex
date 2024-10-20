@@ -25,9 +25,17 @@
           >
             Adopt
           </.link>
-          <button class="font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100">Ferrets</button>
           <.link
-            navigate={~p"/foster"}
+            navigate={~p"/ferrets"}
+            class={[
+              "font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100",
+              @active_tab == :ferrets && "bg-emerald-200"
+            ]}
+          >
+            Ferrets
+          </.link>
+          <.link
+            navigate={~p"/fosters"}
             class={[
               "font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100",
               @active_tab == :foster && "bg-emerald-200"
@@ -76,13 +84,13 @@
             >
               <div class="py-1" role="none">
                 <.link
-                  navigate={~p"/vet"}
+                  navigate={~p"/vets"}
                   class="block px-4 py-2 text-zinc-500 p-2 hover:bg-emerald-100"
                 >
                   Vets
                 </.link>
                 <.link
-                  navigate={~p"/sitter"}
+                  navigate={~p"/sitters"}
                   class="block px-4 py-2 text-zinc-500 p-2 hover:bg-emerald-100"
                 >
                   Sitters
