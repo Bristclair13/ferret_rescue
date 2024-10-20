@@ -36,29 +36,26 @@ defmodule FerretRescueWeb.Live.Vets do
         <div :for={vet <- @vets}>
           <div class="flex flex-col mx-auto my-3 p-6 bg-white shadow-lg mx-3">
             <div class="flex justify-between">
-              <div :if={is_nil(vet.website())}>
-                <p class="text-xl"><%= vet.company_name() %></p>
+              <div :if={is_nil(vet.website)}>
+                <p class="text-xl"><%= vet.company_name %></p>
               </div>
-              <div :if={not is_nil(vet.website())}>
+              <div :if={not is_nil(vet.website)}>
                 <a
-                  href={vet.website()}
+                  href={vet.website}
                   class="hover:underline text-blue-400 hover:text-blue-500 text-xl"
                   target="_blank"
                 >
-                  <%= vet.company_name() %>
+                  <%= vet.company_name %>
                 </a>
               </div>
-              <a
-                href={"tel:+1#{vet.phone()}"}
-                class="hover:underline text-blue-400 hover:text-blue-500"
-              >
-                <%= vet.phone() %>
+              <a href={"tel:+1#{vet.phone}"} class="hover:underline text-blue-400 hover:text-blue-500">
+                <%= vet.phone %>
               </a>
             </div>
             <div class="mt-3">
-              <p><%= vet.vet_name() %></p>
-              <p class="mt-3"><%= vet.street() %></p>
-              <p><%= vet.city() %>, <%= vet.state() %>, <%= vet.zip() %></p>
+              <p><%= vet.vet_name %></p>
+              <p class="mt-3"><%= vet.street %></p>
+              <p><%= vet.city %>, <%= vet.state %>, <%= vet.zip %></p>
             </div>
           </div>
         </div>
