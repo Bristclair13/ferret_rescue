@@ -12,9 +12,12 @@ defmodule FerretRescueWeb.Live.Home do
         <p class="text-center">
           Our Mission: We're saving lives, as many as we can. Finding forever homes for our theiving friends.
         </p>
-        <button class="mx-auto mt-8 w-32 p-2 bg-emerald-600 hover:bg-emerald-700 rounded-md text-white">
-          Adopt A Ferret!
-        </button>
+        <.link
+          navigate={~p"/adopt"}
+          class="mx-auto mt-8 w-32 p-2 bg-emerald-600 hover:bg-emerald-700 rounded-md text-white"
+        >
+          Adopt a Ferret!
+        </.link>
       </div>
       <div>
         <img src="/images/logo.jpg" class="h-36 mr-10" />
