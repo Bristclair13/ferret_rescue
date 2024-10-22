@@ -32,7 +32,7 @@ defmodule FerretRescueWeb.Live.Vets do
         </div>
       </div>
       <h3 class="mt-6 text-center text-3xl">Ferret Specialists</h3>
-      <div class="grid grid-cols-2">
+      <div class="grid grid-cols-2 gap-x-6">
         <div :for={vet <- @vets}>
           <div class="flex flex-col mx-auto my-3 p-6 bg-white shadow-lg mx-3">
             <div class="flex justify-between">

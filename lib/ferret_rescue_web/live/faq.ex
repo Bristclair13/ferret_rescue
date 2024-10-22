@@ -15,7 +15,7 @@ defmodule FerretRescueWeb.Live.Faq do
       <div class="mt-2 p-4 shadow-lg bg-white flex flex-col gap-y-4">
         <div :for={topic <- @topics}>
           <p class="text-3xl mb-2"><%= topic.name %></p>
-          <div :for={question <- topic.questions}>
+          <div :for={question <- topic.questions} class="mb-2">
             <div>
               <button
                 type="button"
