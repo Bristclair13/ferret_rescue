@@ -31,196 +31,188 @@ defmodule FerretRescueWeb.Live.Adopt do
         <span class="font-semibold">We do not adopt to anyone less than 18 years of age.</span>
         If you are less than 18, a parent must fill out this form and be the responsible party.
       </p>
-      <h3 class="text-3xl">Personal Information</h3>
+      <h3 class="text-3xl mb-2">Personal Information</h3>
       <.form :let={f} for={@changeset} phx-submit="submit_application">
-        <.input field={f[:name]} label="Full Name" />
-        <.input field={f[:age]} label="Age" />
-        <.input field={f[:street]} label="Home Address" />
-        <.input field={f[:city]} label="City" />
-        <.input field={f[:state]} label="State" />
-        <.input field={f[:zip_code]} label="Zip Code" />
-        <.input field={f[:time_at_address]} label="How long at this address?" />
-        <.input field={f[:phone_primary]} label="Primary Phone" />
-        <.input field={f[:phone_secondary]} label="Secondary Phone (optional)" />
-        <.input field={f[:email]} label="Email" />
-        <.input
-          field={f[:people_at_address]}
-          type="textarea"
-          label="How many people live at this house (or visit frequently such as grandchildren/stepchildren) and what are their ages?"
-        />
-        <.input
-          field={f[:home_type]}
-          type="select"
-          label="What type of home is this?"
-          options={[
-            {"House", "house"}
-          ]}
-        />
-        <div class="flex flex-col">
-          <label for="home-type" class="mb-4">What type of home is this?</label>
+        <div class="space-y-5">
+          <.input field={f[:name]} label="Full Name" />
+          <.input field={f[:age]} label="Age" />
+          <.input field={f[:street]} label="Home Address" />
+          <.input field={f[:city]} label="City" />
+          <.input field={f[:state]} label="State" />
+          <.input field={f[:zip_code]} label="Zip Code" />
+          <.input field={f[:time_at_address]} label="How long at this address?" />
+          <.input field={f[:phone_primary]} label="Primary Phone" />
+          <.input field={f[:phone_secondary]} label="Secondary Phone (optional)" />
+          <.input field={f[:email]} label="Email" />
+          <.input
+            field={f[:people_at_address]}
+            type="textarea"
+            label="How many people live at this house (or visit frequently such as grandchildren/stepchildren) and what are their ages?"
+          />
+          <.input
+            field={f[:home_type]}
+            type="select"
+            label="What type of home is this?"
+            options={[
+              {"House", "house"},
+              {"Apartment", "apartment"},
+              {"Trailer", "trailer"},
+              {"Other (explain in notes)", "other"}
+            ]}
+          />
+          <.input
+            field={f[:own_home]}
+            type="select"
+            label="Do you own this home?"
+            options={[
+              {"Yes", "yes"},
+              {"No", "no"}
+            ]}
+          />
+          <.input
+            field={f[:smoker]}
+            type="select"
+            label="Is this a smoker's home?"
+            options={[
+              {"Yes", "yes"},
+              {"No", "no"}
+            ]}
+          />
 
-          <select name="home-type" id="home-type">
-            <option value="">--Please choose an option--</option>
-            <option value="house">House</option>
-            <option value="apartment">Apartment</option>
-            <option value="trailer">Trailer</option>
-            <option value="other">Other (explain in notes)</option>
-          </select>
-        </div>
-        <div class="flex flex-col">
-          <label for="own-home" class="mb-4">Do you own this home?</label>
+          <.input
+            field={f[:legal_to_own]}
+            type="select"
+            label="Are ferrets legal where you live?"
+            options={[
+              {"Yes", "yes"},
+              {"No", "no"}
+            ]}
+          />
+          <.input
+            field={f[:owned_before]}
+            type="select"
+            label="Have you owned ferrets before?"
+            options={[
+              {"Yes", "yes"},
+              {"No", "no"}
+            ]}
+          />
+          <.input
+            field={f[:other_animals]}
+            label="What animals/pets do you currently own?"
+            type="textarea"
+          />
+          <.input
+            field={f[:vaccines_current]}
+            type="select"
+            label="Are these pets current on their vaccinations?"
+            options={[
+              {"Yes", "yes"},
+              {"No", "no"}
+            ]}
+          />
 
-          <select name="own-home" id="own-home">
-            <option value="">--Please choose an option--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="flex flex-col">
-          <label for="smoker" class="mb-4">Is this a smoker's home?</label>
+          <.input
+            field={f[:vet_info]}
+            label="Please provide your veterinarian's name and address?"
+            type="textarea"
+          />
+          <.input
+            field={f[:surrendered]}
+            type="select"
+            label="Have you ever surrendered a pet to a shelter?"
+            options={[
+              {"Yes", "yes"},
+              {"No", "no"}
+            ]}
+          />
 
-          <select name="smoker" id="smoker">
-            <option value="">--Please choose an option--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="flex flex-col">
-          <label for="legal-to-own" class="mb-4">Are ferrets legal where you live?</label>
+          <h3 class="text-2xl">How much do you know about ferrets?</h3>
+          <.input
+            field={f[:eat_info]}
+            label="What should a ferret eat and drink? How often? What treats are OK and not OK?"
+            type="textarea"
+          />
 
-          <select name="legal-to-own" id="legal-to-own">
-            <option value="">--Please choose an option--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="flex flex-col">
-          <label for="owned-before" class="mb-4">Have you owned ferrets before?</label>
+          <.input
+            field={f[:kept_info]}
+            label="Where should a ferret be kept and why? In the house? Garage? Backyard?"
+            type="textarea"
+          />
+          <.input
+            field={f[:proofing_info]}
+            label="What is ferret proofing and how do you do it?"
+            type="textarea"
+          />
+          <.input
+            field={f[:num_ferrets_info]}
+            label="What is a good number of ferrets to have and why?"
+            type="textarea"
+          />
+          <.input field={f[:cage_info]} label="When should a ferret be in a cage?" type="textarea" />
+          <.input
+            field={f[:play_info]}
+            label="How often should a ferret be allowed out of his cage? Where should he play and with whom?"
+            type="textarea"
+          />
+          <.input
+            field={f[:toy_info]}
+            label="What should a ferret be allowed to play with? Give examples of right toys and wrong toys?"
+            type="textarea"
+          />
+          <.input
+            field={f[:diseases_info]}
+            label="What diseases do ferrets get and what is the treatment?"
+            type="textarea"
+          />
+          <.input
+            field={f[:heartworms]}
+            type="select"
+            label="Can ferrets get heartworms?"
+            options={[
+              {"Yes", "yes"},
+              {"No", "no"}
+            ]}
+          />
+          <.input
+            field={f[:heartworm_treat]}
+            type="select"
+            label="Is there a treatment to get rid of heartworms in ferrets?"
+            options={[
+              {"Yes", "yes"},
+              {"No", "no"}
+            ]}
+          />
 
-          <select name="owned-before" id="owned-before">
-            <option value="">--Please choose an option--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <.input
-          field={f[:other_animals]}
-          label="What animals/pets do you currently own?"
-          type="textarea"
-        />
-        <div class="flex flex-col">
-          <label for="vaccines_current" class="mb-4">
-            Are these pets current on their vaccinations?
-          </label>
-
-          <select name="vaccines_current" id="vaccines_current">
-            <option value="">--Please choose an option--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <.input
-          field={f[:vet_info]}
-          label="Please provide your veterinarian's name and address?"
-          type="textarea"
-        />
-        <div class="flex flex-col">
-          <label for="surrendered" class="mb-4">
-            Have you ever surrendered a pet to a shelter?
-          </label>
-
-          <select name="surrendered" id="surrendered">
-            <option value="">--Please choose an option--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <h3 class="text-2xl">How much do you know about ferrets?</h3>
-        <.input
-          field={f[:eat_info]}
-          label="What should a ferret eat and drink? How often? What treats are OK and not OK?"
-          type="textarea"
-        />
-
-        <.input
-          field={f[:kept_info]}
-          label="Where should a ferret be kept and why? In the house? Garage? Backyard?"
-          type="textarea"
-        />
-        <.input
-          field={f[:proofing_info]}
-          label="What is ferret proofing and how do you do it?"
-          type="textarea"
-        />
-        <.input
-          field={f[:num_ferrets_info]}
-          label="What is a good number of ferrets to have and why?"
-          type="textarea"
-        />
-        <.input field={f[:cage_info]} label="When should a ferret be in a cage?" type="textarea" />
-        <.input
-          field={f[:play_info]}
-          label="How often should a ferret be allowed out of his cage? Where should he play and with whom?"
-          type="textarea"
-        />
-        <.input
-          field={f[:toy_info]}
-          label="What should a ferret be allowed to play with? Give examples of right toys and wrong toys?"
-          type="textarea"
-        />
-        <.input
-          field={f[:diseases_info]}
-          label="What diseases do ferrets get and what is the treatment?"
-          type="textarea"
-        />
-        <div class="flex flex-col">
-          <label for="heartworms" class="mb-4">
-            Can ferrets get heartworms?
-          </label>
-
-          <select name="heartworms" id="heartworms">
-            <option value="">--Please choose an option--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="flex flex-col">
-          <label for="heartworm-treat" class="mb-4">
-            Is there a treatment to get rid of heartworms in ferrets?
-          </label>
-
-          <select name="heartworm-treat" id="heartworm-treat">
-            <option value="">--Please choose an option--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <.input
-          field={f[:heartworm_prevent]}
-          label="How do you prevent heartworms in ferrets?"
-          type="textarea"
-        />
-        <.input
-          field={f[:move_info]}
-          label="Under what conditions would you move to a place which would not accept ferrets? What would you do with yours?"
-          type="textarea"
-        />
-        <.input field={f[:forever_home]} label="What does FOREVER HOME mean to you?" type="textarea" />
-        <.input
-          field={f[:notes]}
-          label="Notes, aynthing else you think we need to know, or questions you may have for us:"
-          type="textarea"
-        />
-        <div class="flex flex-col">
-          <label for="fostering" class="mb-4">
-            Are you interested in fostering ferrets?
-          </label>
-
-          <select name="fostering" id="fostering">
-            <option value="">--Please choose an option--</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
+          <.input
+            field={f[:heartworm_prevent]}
+            label="How do you prevent heartworms in ferrets?"
+            type="textarea"
+          />
+          <.input
+            field={f[:move_info]}
+            label="Under what conditions would you move to a place which would not accept ferrets? What would you do with yours?"
+            type="textarea"
+          />
+          <.input
+            field={f[:forever_home]}
+            label="What does FOREVER HOME mean to you?"
+            type="textarea"
+          />
+          <.input
+            field={f[:notes]}
+            label="Notes, aynthing else you think we need to know, or questions you may have for us:"
+            type="textarea"
+          />
+          <.input
+            field={f[:fostering]}
+            type="select"
+            label="Are you interested in fostering ferrets?"
+            options={[
+              {"Yes", "yes"},
+              {"No", "no"}
+            ]}
+          />
         </div>
         <div class="flex mt-6">
           <input type="checkbox" id="confiming" name="confirming" value="confirming" class="mr-1" />
@@ -228,7 +220,9 @@ defmodule FerretRescueWeb.Live.Adopt do
             By selecting this box and clicking the submit button below I am confirming that I understand ferrets are not caged animals, they are not like hamsters and mice, that they must have time out of a cage daily for their well being both physically and mentally and that they do need human interaction with their play. I am ready to commit to giving the proper time and care to the ferret and I realize they depend completely on my schedule to determine when they will play, sleep and eat. Furthermore, I submit that my answers to the questions above are truthful and accurate to the best of my ability.
           </legend>
         </div>
-        <.button>Submit</.button>
+        <.button class="mt-4">
+          Submit
+        </.button>
       </.form>
     </div>
     """
