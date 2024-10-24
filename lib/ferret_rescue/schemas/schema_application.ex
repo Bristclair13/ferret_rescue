@@ -54,7 +54,7 @@ defmodule FerretRescue.Schemas.Application do
     timestamps()
   end
 
-  def changeset(model, attrs) do
+  def changeset(model \\ %__MODULE__{}, attrs) do
     model
     |> cast(attrs, __schema__(:fields) -- [:id])
     |> validate_required(
