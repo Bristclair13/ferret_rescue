@@ -26,6 +26,7 @@ defmodule FerretRescueWeb.Router do
       live "/vets", Vets
       live "/faq", Faq
       live "/ferrets", Ferrets
+      live "/admin", Admin
     end
   end
 
