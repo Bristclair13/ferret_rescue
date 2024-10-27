@@ -1,9 +1,11 @@
 defmodule FerretRescue do
-  @moduledoc """
-  FerretRescue keeps the contexts that define your domain
-  and business logic.
+  alias FerretRescue.Actions
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  @behaviour Actions.Login
+  @impl Actions.Login
+  defdelegate login(email, password), to: Actions.Login
+
+  @behaviour Actions.ListVets
+  @impl Actions.ListVets
+  defdelegate list_vets(), to: Actions.ListVets
 end

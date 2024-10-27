@@ -14,6 +14,13 @@ defmodule FerretRescueWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/auth", FerretRescueWeb do
+    pipe_through :browser
+
+    get "/login", LoginController, :login
+    post "/login", LoginController, :handle_login
+  end
+
   live_session :default, on_mount: [FerretRescueWeb.Middleware.Nav.Hook] do
     scope "/", FerretRescueWeb.Live do
       pipe_through :browser

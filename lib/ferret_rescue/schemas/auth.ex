@@ -17,7 +17,7 @@ defmodule FerretRescue.Schemas.Auth do
     timestamps()
   end
 
-  def changeset(struct, params) do
+  def changeset(struct \\ %__MODULE__{}, params) do
     struct
     |> cast(params, __schema__(:fields) -- [:id])
     |> validate_required(__schema__(:fields) -- [:id, :password, :inserted_at, :updated_at])
