@@ -26,9 +26,15 @@ defmodule FerretRescueWeb.Live.Admin do
           <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.id %></td>
           <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.name %></td>
           <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.email %></td>
-          <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.reviewed %></td>
-          <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.approved %></td>
-          <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.final %></td>
+          <td class="border border-neutral-800 bg-white px-12 py-4">
+            <%= if application.reviewed, do: "yes", else: "no" %>
+          </td>
+          <td class="border border-neutral-800 bg-white px-12 py-4">
+            <%= if application.approved, do: "yes", else: "no" %>
+          </td>
+          <td class="border border-neutral-800 bg-white px-12 py-4">
+            <%= if application.final, do: "yes", else: "no" %>
+          </td>
           <td class="border border-neutral-800 bg-white px-12 py-4">review</td>
         </tr>
       </tbody>
