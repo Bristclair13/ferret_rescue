@@ -1,7 +1,7 @@
 defmodule FerretRescueWeb.Live.Admin do
   use FerretRescueWeb, :live_view
 
-  alias FerretRescue.Admin.Storage
+  alias FerretRescue.Actions.ListApplications
 
   def mount(_params, _session, socket) do
     {:ok, socket}
@@ -47,6 +47,6 @@ defmodule FerretRescueWeb.Live.Admin do
   end
 
   defp assign_applications(socket) do
-    assign(socket, :applications, Storage.list_applications())
+    assign(socket, :applications, ListApplications.list_applications())
   end
 end
