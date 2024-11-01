@@ -2,13 +2,27 @@ defmodule FerretRescueWeb.Live.Admin do
   use FerretRescueWeb, :live_view
 
   alias FerretRescue.Actions.ListApplications
+  alias FerretRescueWeb.Forms.FilterForm
 
-  def mount(_params, _session, socket) do
-    {:ok, socket}
+  def handle_params(params, _url, socket) do
+    filter =
+      params
+      |> FilterForm.parse()
+      |> FilterForm.default_values()
+
+    applications = ListApplications.list_applications(filter)
+
+    {:noreply,
+     assign(socket,
+       changeset: FilterForm.change_values(filter),
+       applications: applications,
+       filter: filter
+     )}
   end
 
   def render(assigns) do
     ~H"""
+    <FerretRescueWeb.Live.FilterComponent.render id="filter" filter={@filter} changeset={@changeset} />
     <table class="max-w-6xl mx-auto">
       <thead class="border border-neutral-800 font-medium">
         <tr>
@@ -42,11 +56,8 @@ defmodule FerretRescueWeb.Live.Admin do
     """
   end
 
-  def handle_params(_params, _url, socket) do
-    {:noreply, assign_applications(socket)}
-  end
-
-  defp assign_applications(socket) do
-    assign(socket, :applications, ListApplications.list_applications())
+  def handle_event("search", %{"filter" => filter}, socket) do
+    params = FilterForm.parse(filter)
+    {:noreply, push_patch(socket, to: ~p"/admin?#{params}")}
   end
 end
