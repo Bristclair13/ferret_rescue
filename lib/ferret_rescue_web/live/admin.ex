@@ -10,7 +10,8 @@ defmodule FerretRescueWeb.Live.Admin do
       |> FilterForm.parse()
       |> FilterForm.default_values()
 
-    applications = ListApplications.list_applications(filter)
+    applications =
+      ListApplications.list_applications(filter: filter, page: params["page"] || 1)
 
     {:noreply,
      assign(socket,
@@ -35,7 +36,7 @@ defmodule FerretRescueWeb.Live.Admin do
           <th scope="col" class="border border-neutral-800 bg-white px-12 py-4"></th>
         </tr>
       </thead>
-      <tbody :for={application <- @applications}>
+      <tbody :for={application <- @applications.list}>
         <tr>
           <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.id %></td>
           <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.name %></td>

@@ -1,10 +1,10 @@
 defmodule FerretRescueWeb.Live.Ferrets do
   use FerretRescueWeb, :live_view
 
-  alias FerretRescue.Ferrets.Storage
+  alias FerretRescue.Actions.ListFerrets
 
   def mount(_params, _session, socket) do
-    ferrets = Storage.list_ferrets()
+    ferrets = ListFerrets.list_ferrets()
     {:ok, assign(socket, ferrets: ferrets)}
   end
 
