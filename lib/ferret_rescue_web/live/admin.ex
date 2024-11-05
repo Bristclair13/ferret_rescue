@@ -54,7 +54,24 @@ defmodule FerretRescueWeb.Live.Admin do
         </tr>
       </tbody>
     </table>
+    <div :if={@applications.has_next}>
+      <.button phx-click="next">Next</.button>
+    </div>
+    <div :if={@applications.has_prev}>
+      <.button phx-click="prev">Prev</.button>
+    </div>
     """
+  end
+
+  def handle_event("next", _params, socket) do
+    page = socket.assigns.applications.page
+    {:noreply, push_patch(socket, to: ~p"/admin?page=#{page + 1}")}
+  end
+
+  def handle_event("prev", _params, socket) do
+    page = socket.assigns.applications.page
+
+    {:noreply, push_patch(socket, to: ~p"/admin?page=#{page - 1}")}
   end
 
   def handle_event("search", %{"filter" => filter}, socket) do
