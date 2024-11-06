@@ -23,42 +23,68 @@ defmodule FerretRescueWeb.Live.Admin do
 
   def render(assigns) do
     ~H"""
-    <FerretRescueWeb.Live.FilterComponent.render id="filter" filter={@filter} changeset={@changeset} />
-    <table class="max-w-6xl mx-auto">
-      <thead class="border border-neutral-800 font-medium">
-        <tr>
-          <th scope="col" class="border border-neutral-800 bg-white px-12 py-4">#</th>
-          <th scope="col" class="border border-neutral-800 bg-white px-24 py-4">Name</th>
-          <th scope="col" class="border border-neutral-800 bg-white px-24 py-4">Email</th>
-          <th scope="col" class="border border-neutral-800 bg-white px-12 py-4">Reviewed</th>
-          <th scope="col" class="border border-neutral-800 bg-white px-12 py-4">Approved</th>
-          <th scope="col" class="border border-neutral-800 bg-white px-12 py-4">Final</th>
-          <th scope="col" class="border border-neutral-800 bg-white px-12 py-4"></th>
-        </tr>
-      </thead>
-      <tbody :for={application <- @applications.list}>
-        <tr>
-          <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.id %></td>
-          <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.name %></td>
-          <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.email %></td>
-          <td class="border border-neutral-800 bg-white px-12 py-4">
-            <%= if application.reviewed, do: "yes", else: "no" %>
-          </td>
-          <td class="border border-neutral-800 bg-white px-12 py-4">
-            <%= if application.approved, do: "yes", else: "no" %>
-          </td>
-          <td class="border border-neutral-800 bg-white px-12 py-4">
-            <%= if application.final, do: "yes", else: "no" %>
-          </td>
-          <td class="border border-neutral-800 bg-white px-12 py-4">review</td>
-        </tr>
-      </tbody>
-    </table>
-    <div :if={@applications.has_next}>
-      <.button phx-click="next">Next</.button>
-    </div>
-    <div :if={@applications.has_prev}>
-      <.button phx-click="prev">Prev</.button>
+    <div>
+      <div class="flex max-w-6xl mx-auto mb-8">
+        <div>
+          <FerretRescueWeb.Live.FilterComponent.render
+            id="filter"
+            filter={@filter}
+            changeset={@changeset}
+          />
+        </div>
+        <div class="my-auto ml-8">
+          <.button
+            phx-click="final-filter"
+            class="bg-white text-emerald-600 hover:text-white hover:bg-emerald-600"
+          >
+            Needs Review
+          </.button>
+          <.button
+            phx-click="all-apps"
+            class="bg-white text-emerald-600 hover:text-white hover:bg-emerald-600"
+          >
+            All Applications
+          </.button>
+        </div>
+        <div class="my-auto ml-auto flex">
+          <div :if={@applications.has_prev}>
+            <.button phx-click="prev" class="mr-4">Prev</.button>
+          </div>
+          <div :if={@applications.has_next}>
+            <.button phx-click="next">Next</.button>
+          </div>
+        </div>
+      </div>
+      <table class="max-w-6xl mx-auto">
+        <thead class="border border-neutral-800 font-medium">
+          <tr>
+            <th scope="col" class="border border-neutral-800 bg-white px-12 py-4">#</th>
+            <th scope="col" class="border border-neutral-800 bg-white px-24 py-4">Name</th>
+            <th scope="col" class="border border-neutral-800 bg-white px-24 py-4">Email</th>
+            <th scope="col" class="border border-neutral-800 bg-white px-12 py-4">Reviewed</th>
+            <th scope="col" class="border border-neutral-800 bg-white px-12 py-4">Approved</th>
+            <th scope="col" class="border border-neutral-800 bg-white px-12 py-4">Final</th>
+            <th scope="col" class="border border-neutral-800 bg-white px-12 py-4"></th>
+          </tr>
+        </thead>
+        <tbody :for={application <- @applications.list}>
+          <tr>
+            <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.id %></td>
+            <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.name %></td>
+            <td class="border border-neutral-800 bg-white px-12 py-4"><%= application.email %></td>
+            <td class="border border-neutral-800 bg-white px-12 py-4">
+              <%= if application.reviewed, do: "yes", else: "no" %>
+            </td>
+            <td class="border border-neutral-800 bg-white px-12 py-4">
+              <%= if application.approved, do: "yes", else: "no" %>
+            </td>
+            <td class="border border-neutral-800 bg-white px-12 py-4">
+              <%= if application.final, do: "yes", else: "no" %>
+            </td>
+            <td class="border border-neutral-800 bg-white px-12 py-4">review</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     """
   end
