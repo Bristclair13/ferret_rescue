@@ -14,7 +14,24 @@ defmodule FerretRescueWeb.MiddleWare.EnsureAuthenticated.Plug do
       assign(conn, :auth, auth)
     else
       _error ->
-        redirect(conn, to: "/login") |> halt()
+        redirect(conn, to: "/auth/login") |> halt()
     end
+  end
+end
+
+defmodule FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook do
+  @moduledoc false
+  use FerretRescueWeb, :live_view
+
+  alias FerretRescue.Actions.GetAuth
+
+  def on_mount(:default, _params, session, socket) do
+    {:ok, auth} =
+      GetAuth.get_by(id: session["auth_id"])
+
+    {:cont,
+     assign(socket,
+       auth: auth
+     )}
   end
 end

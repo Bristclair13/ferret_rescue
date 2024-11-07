@@ -218,10 +218,11 @@ defmodule FerretRescueWeb.CoreComponents do
   ## Examples
 
       <.button>Send!</.button>
-      <.button phx-click="go" class="ml-2">Send!</.button>
+      <.button phx-click="go" class="ml-2" disabled-false>Send!</.button>
   """
   attr :type, :string, default: nil
   attr :class, :string, default: nil
+  attr :disabled, :boolean, default: false
   attr :rest, :global, include: ~w(disabled form name value)
 
   slot :inner_block, required: true
@@ -230,12 +231,22 @@ defmodule FerretRescueWeb.CoreComponents do
     ~H"""
     <button
       type={@type}
-      class={[
-        "phx-submit-loading:opacity-75 rounded-lg bg-emerald-600 hover:bg-emerald-700 py-2 px-3",
-        "text-sm font-semibold leading-6 text-white active:text-white/80",
-        @class
-      ]}
+      class={
+        if @disabled do
+          [
+            "rounded-md bg-slate-400 px-3 py-2 text-sm font-semibold text-white shadow-sm",
+            @class
+          ]
+        else
+          [
+            "phx-submit-loading:opacity-75 rounded-lg bg-emerald-600 hover:bg-emerald-700 py-2 px-3",
+            "text-sm font-semibold leading-6 text-white active:text-white/80",
+            @class
+          ]
+        end
+      }
       {@rest}
+      disabled={@disabled}
     >
       <%= render_slot(@inner_block) %>
     </button>

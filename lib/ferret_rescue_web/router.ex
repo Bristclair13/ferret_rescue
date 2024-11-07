@@ -37,14 +37,15 @@ defmodule FerretRescueWeb.Router do
       live "/vets", Vets
       live "/faq", Faq
       live "/ferrets", Ferrets
+    end
+  end
+
+  live_session :authenticated, on_mount: [FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook] do
+    scope "/", FerretRescueWeb.Live do
+      pipe_through [:browser, :authenticated]
+
       live "/admin", Admin
     end
-
-    # scope "/", FerretRescueWeb.Live do
-    #   pipe_through [:browser, :authenticated]
-
-    #   live "/admin", Admin
-    # end
   end
 
   # Other scopes may use custom stacks.

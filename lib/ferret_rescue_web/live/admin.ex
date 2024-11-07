@@ -13,11 +13,14 @@ defmodule FerretRescueWeb.Live.Admin do
     applications =
       ListApplications.list_applications(filter: filter, page: params["page"] || 1)
 
+    disabled = params["disabled"] || false
+
     {:noreply,
      assign(socket,
        changeset: FilterForm.change_values(filter),
        applications: applications,
-       filter: filter
+       filter: filter,
+       disabled: disabled
      )}
   end
 
@@ -41,7 +44,7 @@ defmodule FerretRescueWeb.Live.Admin do
                 [
                   "hover:text-white hover:bg-emerald-600",
                   (@filter.include == "needs_review" && "text-white bg-emerald-600") ||
-                    "bg-white text-emerald-700"
+                    "bg-white text-emerald-600"
                 ],
                 " "
               )
@@ -52,17 +55,19 @@ defmodule FerretRescueWeb.Live.Admin do
           <.button
             phx-click="change_include_filter"
             phx-value-include="all"
-            class="bg-white text-emerald-700 hover:text-white hover:bg-emerald-600"
+            class="bg-white text-emerald-600 hover:text-white hover:bg-emerald-600"
           >
             All Applications
           </.button>
         </div>
         <div class="my-auto ml-auto flex">
-          <div :if={@applications.has_prev}>
-            <.button phx-click="prev" class="mr-4">Prev Page</.button>
+          <div>
+            <.button phx-click="prev" class="mr-4" disabled={not @applications.has_prev}>
+              Prev Page
+            </.button>
           </div>
-          <div :if={@applications.has_next}>
-            <.button phx-click="next">Next Page</.button>
+          <div>
+            <.button phx-click="next" disabled={not @applications.has_next}>Next Page</.button>
           </div>
         </div>
       </div>
