@@ -32,11 +32,12 @@ defmodule FerretRescueWeb.Live.Home do
       <img src="/images/ferret-6.jpg" class="w-44" />
     </div>
     <div class="flex max-w-6xl justify-between mx-auto mt-6 mb-6">
-      <div>
-        <button class="w-96 h=[89px] px-16 py-6 text-3xl mt-4 bg-emerald-200 hover:bg-emerald-300">
-          Apply to Adopt
-        </button>
-      </div>
+      <.link
+        navigate={~p"/adopt"}
+        class="w-96 h=[89px] text-3xl text-center my-4 pt-6 bg-emerald-200 hover:bg-emerald-300"
+      >
+        Apply to Adopt
+      </.link>
       <div class=" bg-white h-32">
         <div class="flex px-6">
           <div class="flex flex-col pt-6">
@@ -54,7 +55,7 @@ defmodule FerretRescueWeb.Live.Home do
         </div>
       </div>
       <div>
-        <button class="w-96 h=[89px] px-24 py-6 mt-4 text-3xl bg-emerald-200 hover:bg-emerald-300">
+        <button class="w-96 h=[89px] px-24 py-7 my-4 text-3xl bg-emerald-200 hover:bg-emerald-300">
           Contact Us
         </button>
       </div>

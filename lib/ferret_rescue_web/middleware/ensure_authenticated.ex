@@ -1,23 +1,20 @@
-# defmodule FerretRescueWeb.MiddleWare.EnsureAuthenticated.Plug do
-#   import Phoenix.Controller
-#   import Plug.Conn
+defmodule FerretRescueWeb.MiddleWare.EnsureAuthenticated.Plug do
+  import Phoenix.Controller
+  import Plug.Conn
 
-#   alias FerretRescue.Repo
-#   alias FerretRescue.Schemas.Auth
+  alias FerretRescue.Repo
+  alias FerretRescue.Schemas.Auth
 
-#   def init(_params) do
-#   end
+  def init(_params) do
+  end
 
-#   def call(conn, _params) do
-#     auth_id = Plug.Conn.get_session(conn, :auth_id)
-
-#     cond do
-#       auth = auth_id && Repo.get(Auth, auth_id) ->
-#         conn
-#         |> assign(:auth, auth)
-#     else
-#       _error ->
-#         render(conn, :login, layout: false, error: "invalid login")
-#     end
-#   end
-# end
+  def call(conn, _params) do
+    with auth_id when is_binary(auth_id) <- get_session(conn, :auth_id),
+         {:ok, auth} <- Repo.get(Auth, auth_id) do
+      assign(conn, :auth, auth)
+    else
+      _error ->
+        redirect(conn, to: "/login") |> halt()
+    end
+  end
+end

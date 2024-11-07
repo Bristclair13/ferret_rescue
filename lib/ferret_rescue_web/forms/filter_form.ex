@@ -2,9 +2,10 @@ defmodule FerretRescueWeb.Forms.FilterForm do
   import Ecto.Changeset
 
   @fields %{
-    name_or_email: :string
+    name_or_email: :string,
+    include: :string
   }
-  @default_values %{name_or_email: nil}
+  @default_values %{name_or_email: nil, include: "needs_review"}
   def default_values(overrides \\ %{}) do
     Map.merge(@default_values, overrides)
   end

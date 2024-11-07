@@ -34,24 +34,35 @@ defmodule FerretRescueWeb.Live.Admin do
         </div>
         <div class="my-auto ml-8">
           <.button
-            phx-click="final-filter"
-            class="bg-white text-emerald-600 hover:text-white hover:bg-emerald-600"
+            phx-click="change_include_filter"
+            phx-value-include="needs_review"
+            class={
+              Enum.join(
+                [
+                  "hover:text-white hover:bg-emerald-600",
+                  (@filter.include == "needs_review" && "text-white bg-emerald-600") ||
+                    "bg-white text-emerald-700"
+                ],
+                " "
+              )
+            }
           >
             Needs Review
           </.button>
           <.button
-            phx-click="all-apps"
-            class="bg-white text-emerald-600 hover:text-white hover:bg-emerald-600"
+            phx-click="change_include_filter"
+            phx-value-include="all"
+            class="bg-white text-emerald-700 hover:text-white hover:bg-emerald-600"
           >
             All Applications
           </.button>
         </div>
         <div class="my-auto ml-auto flex">
           <div :if={@applications.has_prev}>
-            <.button phx-click="prev" class="mr-4">Prev</.button>
+            <.button phx-click="prev" class="mr-4">Prev Page</.button>
           </div>
           <div :if={@applications.has_next}>
-            <.button phx-click="next">Next</.button>
+            <.button phx-click="next">Next Page</.button>
           </div>
         </div>
       </div>
@@ -102,6 +113,12 @@ defmodule FerretRescueWeb.Live.Admin do
 
   def handle_event("search", %{"filter" => filter}, socket) do
     params = FilterForm.parse(filter)
+    {:noreply, push_patch(socket, to: ~p"/admin?#{params}")}
+  end
+
+  def handle_event("change_include_filter", %{"include" => include}, socket) do
+    filter = socket.assigns.filter
+    params = Map.put(filter, :include, include)
     {:noreply, push_patch(socket, to: ~p"/admin?#{params}")}
   end
 end

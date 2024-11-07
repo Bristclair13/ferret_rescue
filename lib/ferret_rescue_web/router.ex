@@ -14,6 +14,10 @@ defmodule FerretRescueWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :authenticated do
+    plug FerretRescueWeb.MiddleWare.EnsureAuthenticated.Plug
+  end
+
   scope "/auth", FerretRescueWeb do
     pipe_through :browser
 
@@ -35,6 +39,12 @@ defmodule FerretRescueWeb.Router do
       live "/ferrets", Ferrets
       live "/admin", Admin
     end
+
+    # scope "/", FerretRescueWeb.Live do
+    #   pipe_through [:browser, :authenticated]
+
+    #   live "/admin", Admin
+    # end
   end
 
   # Other scopes may use custom stacks.

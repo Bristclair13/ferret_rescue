@@ -3,7 +3,7 @@ defmodule FerretRescue.Pagination do
 
   alias FerretRescue.Repo
 
-  @per_page 10
+  @per_page 20
 
   def all(query, page) when is_binary(page) do
     all(query, String.to_integer(page))
