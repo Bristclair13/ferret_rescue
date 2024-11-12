@@ -4,16 +4,19 @@ defmodule FerretRescueWeb.MiddleWare.EnsureAuthenticated.Plug do
 
   alias FerretRescue.Repo
   alias FerretRescue.Schemas.Auth
+  alias FerretRescue.Actions.GetAuth
 
-  def init(_params) do
+  def init(_opts) do
   end
 
-  def call(conn, _params) do
-    with auth_id when is_binary(auth_id) <- get_session(conn, :auth_id),
-         {:ok, auth} <- Repo.get(Auth, auth_id) do
-      assign(conn, :auth, auth)
-    else
-      _error ->
+  def call(conn, _opts) do
+    auth_id = get_session(conn, :auth_id)
+
+    cond do
+      auth = auth_id && Repo.get(Auth, auth_id) ->
+        assign(conn, :auth, auth)
+
+      true ->
         redirect(conn, to: "/auth/login") |> halt()
     end
   end
@@ -33,5 +36,6 @@ defmodule FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook do
      assign(socket,
        auth: auth
      )}
+    |> dbg()
   end
 end

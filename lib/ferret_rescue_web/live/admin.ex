@@ -1,5 +1,5 @@
 defmodule FerretRescueWeb.Live.Admin do
-  use FerretRescueWeb, :live_view
+  use FerretRescueWeb, :admin_live_view
 
   alias FerretRescue.Actions.ListApplications
   alias FerretRescueWeb.Forms.FilterForm

@@ -23,9 +23,11 @@ defmodule FerretRescueWeb.Router do
 
     get "/login", LoginController, :login
     post "/login", LoginController, :handle_login
+    get "/logout", LoginController, :logout
   end
 
-  live_session :default, on_mount: [FerretRescueWeb.Middleware.Nav.Hook] do
+  live_session :default,
+    on_mount: [FerretRescueWeb.Middleware.Nav.Hook] do
     scope "/", FerretRescueWeb.Live do
       pipe_through :browser
 
@@ -40,7 +42,9 @@ defmodule FerretRescueWeb.Router do
     end
   end
 
-  live_session :authenticated, on_mount: [FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook] do
+  live_session :authenticated,
+    on_mount: FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook,
+    layout: {FerretRescueWeb.Layouts, :admin} do
     scope "/", FerretRescueWeb.Live do
       pipe_through [:browser, :authenticated]
 
