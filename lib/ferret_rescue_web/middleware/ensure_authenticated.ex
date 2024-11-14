@@ -36,6 +36,5 @@ defmodule FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook do
      assign(socket,
        auth: auth
      )}
-    |> dbg()
   end
 end
