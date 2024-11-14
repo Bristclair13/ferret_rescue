@@ -49,7 +49,6 @@ defmodule FerretRescueWeb.Router do
       pipe_through [:browser, :authenticated]
 
       live "/admin", Admin
-      live "/admin/application/direct", DirectApplication
       live "/admin/application/:id", Application
     end
   end

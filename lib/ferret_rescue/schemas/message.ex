@@ -14,7 +14,7 @@ defmodule FerretRescue.Schemas.Message do
     timestamps(inserted_at: :sent_at, updated_at: false)
   end
 
-  def changeset(model, attrs) do
+  def changeset(model \\ %__MODULE__{}, attrs) do
     model
     |> cast(attrs, __schema__(:fields) -- [:id])
     |> validate_required([:message])

@@ -239,7 +239,7 @@ defmodule FerretRescueWeb.CoreComponents do
           ]
         else
           [
-            "phx-submit-loading:opacity-75 rounded-lg bg-emerald-600 hover:bg-emerald-700 py-2 px-3",
+            "phx-submit-loading:opacity-75 rounded-lg bg-emerald-600 hover:bg-emerald-700 py-2",
             "text-sm font-semibold leading-6 text-white active:text-white/80",
             @class
           ]
