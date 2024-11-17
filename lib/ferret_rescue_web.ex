@@ -58,15 +58,6 @@ defmodule FerretRescueWeb do
     end
   end
 
-  def admin_live_view do
-    quote do
-      use Phoenix.LiveView,
-        layout: {FerretRescueWeb.Layouts, :admin}
-
-      unquote(html_helpers())
-    end
-  end
-
   def live_component do
     quote do
       use Phoenix.LiveComponent

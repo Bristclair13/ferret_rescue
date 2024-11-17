@@ -1,5 +1,5 @@
 defmodule FerretRescueWeb.Live.Application do
-  use FerretRescueWeb, :admin_live_view
+  use FerretRescueWeb, :live_view
 
   alias FerretRescue.Schemas.Message
   alias FerretRescue.Actions.ListMessages
@@ -10,6 +10,8 @@ defmodule FerretRescueWeb.Live.Application do
     changeset = Message.changeset(%{})
     messages = ListMessages.list_messages()
 
+    # TODO: should return {:ok, application} and should use FerretRescue
+    # and handle error
     application = GetApplication.get_application(application_id)
     {:ok, assign(socket, application: application, changeset: changeset, messages: messages)}
   end
@@ -32,7 +34,7 @@ defmodule FerretRescueWeb.Live.Application do
       <div class="flex flex-col">
         <h2>Messages</h2>
 
-        <.form :let={f} for={@changeset} phx-submit="submit_message">
+        <.form :let={f} for={@changeset} phx-submit="send_message">
           <.input field={f[:message]} type="textarea" label="send message to applicant" />
           <.button class="mt-4">
             Send
@@ -322,7 +324,9 @@ defmodule FerretRescueWeb.Live.Application do
     """
   end
 
-  def handle_event("submit_message", %{"message" => message}, socket) do
+  def handle_event("send_message", %{"message" => message}, socket) do
+    # TODO: need to actually insert into db, create action FerretRescue.send_message(params)
+    # on success should add back into messages (assigns) so it immediately shows
     changeset = Message.changeset(message) |> Map.put(:action, :insert)
     {:noreply, assign(socket, changeset: changeset)}
   end

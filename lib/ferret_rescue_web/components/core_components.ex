@@ -221,13 +221,14 @@ defmodule FerretRescueWeb.CoreComponents do
       <.button phx-click="go" class="ml-2" disabled-false>Send!</.button>
   """
   attr :type, :string, default: nil
-  attr :class, :string, default: nil
+  attr :class, :any, default: nil
   attr :disabled, :boolean, default: false
   attr :rest, :global, include: ~w(disabled form name value)
 
   slot :inner_block, required: true
 
   def button(assigns) do
+    # TODO: use disabled: instead
     ~H"""
     <button
       type={@type}

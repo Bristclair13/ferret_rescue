@@ -54,6 +54,7 @@ defmodule FerretRescueWeb.Live.Adopt do
             type="select"
             label="What type of home is this?"
             options={[
+              {"Please select an option", nil},
               {"House", "house"},
               {"Apartment", "apartment"},
               {"Trailer", "trailer"},
@@ -65,8 +66,9 @@ defmodule FerretRescueWeb.Live.Adopt do
             type="select"
             label="Do you own this home?"
             options={[
-              {"Yes", "yes"},
-              {"No", "no"}
+              {"Please select an option", nil},
+              {"Yes", "true"},
+              {"No", "false"}
             ]}
           />
           <.input
@@ -74,8 +76,9 @@ defmodule FerretRescueWeb.Live.Adopt do
             type="select"
             label="Is this a smoker's home?"
             options={[
-              {"Yes", "yes"},
-              {"No", "no"}
+              {"Please select an option", nil},
+              {"Yes", "true"},
+              {"No", "false"}
             ]}
           />
 
@@ -84,8 +87,9 @@ defmodule FerretRescueWeb.Live.Adopt do
             type="select"
             label="Are ferrets legal where you live?"
             options={[
-              {"Yes", "yes"},
-              {"No", "no"}
+              {"Please select an option", nil},
+              {"Yes", "true"},
+              {"No", "false"}
             ]}
           />
           <.input
@@ -93,8 +97,9 @@ defmodule FerretRescueWeb.Live.Adopt do
             type="select"
             label="Have you owned ferrets before?"
             options={[
-              {"Yes", "yes"},
-              {"No", "no"}
+              {"Please select an option", nil},
+              {"Yes", "true"},
+              {"No", "false"}
             ]}
           />
           <.input
@@ -107,8 +112,9 @@ defmodule FerretRescueWeb.Live.Adopt do
             type="select"
             label="Are these pets current on their vaccinations?"
             options={[
-              {"Yes", "yes"},
-              {"No", "no"}
+              {"Please select an option", nil},
+              {"Yes", "true"},
+              {"No", "false"}
             ]}
           />
 
@@ -122,8 +128,9 @@ defmodule FerretRescueWeb.Live.Adopt do
             type="select"
             label="Have you ever surrendered a pet to a shelter?"
             options={[
-              {"Yes", "yes"},
-              {"No", "no"}
+              {"Please select an option", nil},
+              {"Yes", "true"},
+              {"No", "false"}
             ]}
           />
 
@@ -170,8 +177,9 @@ defmodule FerretRescueWeb.Live.Adopt do
             type="select"
             label="Can ferrets get heartworms?"
             options={[
-              {"Yes", "yes"},
-              {"No", "no"}
+              {"Please select an option", nil},
+              {"Yes", "true"},
+              {"No", "false"}
             ]}
           />
           <.input
@@ -179,8 +187,9 @@ defmodule FerretRescueWeb.Live.Adopt do
             type="select"
             label="Is there a treatment to get rid of heartworms in ferrets?"
             options={[
-              {"Yes", "yes"},
-              {"No", "no"}
+              {"Please select an option", nil},
+              {"Yes", "true"},
+              {"No", "false"}
             ]}
           />
 
@@ -209,8 +218,9 @@ defmodule FerretRescueWeb.Live.Adopt do
             type="select"
             label="Are you interested in fostering ferrets?"
             options={[
-              {"Yes", "yes"},
-              {"No", "no"}
+              {"Please select an option", nil},
+              {"Yes", "true"},
+              {"No", "false"}
             ]}
           />
         </div>
@@ -228,8 +238,14 @@ defmodule FerretRescueWeb.Live.Adopt do
     """
   end
 
-  def handle_event("submit_application", %{"application" => application}, socket) do
-    changeset = Application.changeset(application) |> Map.put(:action, :insert)
-    {:noreply, assign(socket, changeset: changeset)}
+  def handle_event("submit_application", %{"application" => params}, socket) do
+    case FerretRescue.submit_application(params) do
+      {:ok, _application} ->
+        # TODO: send them to success page
+        :ok
+
+      {:error, changeset} ->
+        {:noreply, assign(socket, changeset: changeset)}
+    end
   end
 end

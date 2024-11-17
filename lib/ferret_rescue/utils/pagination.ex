@@ -1,4 +1,5 @@
 defmodule FerretRescue.Pagination do
+  # TODO: update to FerretRescue.Utils.Pagination
   import Ecto.Query
 
   alias FerretRescue.Repo

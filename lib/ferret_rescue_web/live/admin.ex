@@ -1,5 +1,5 @@
 defmodule FerretRescueWeb.Live.Admin do
-  use FerretRescueWeb, :admin_live_view
+  use FerretRescueWeb, :live_view
 
   alias FerretRescue.Actions.ListApplications
   alias FerretRescueWeb.Forms.FilterForm
@@ -13,14 +13,11 @@ defmodule FerretRescueWeb.Live.Admin do
     applications =
       ListApplications.list_applications(filter: filter, page: params["page"] || 1)
 
-    disabled = params["disabled"] || false
-
     {:noreply,
      assign(socket,
        changeset: FilterForm.change_values(filter),
        applications: applications,
-       filter: filter,
-       disabled: disabled
+       filter: filter
      )}
   end
 
@@ -39,16 +36,11 @@ defmodule FerretRescueWeb.Live.Admin do
           <.button
             phx-click="change_include_filter"
             phx-value-include="needs_review"
-            class={
-              Enum.join(
-                [
-                  "hover:text-white hover:bg-emerald-600",
-                  (@filter.include == "needs_review" && "text-white bg-emerald-600") ||
-                    "bg-white text-emerald-600"
-                ],
-                " "
-              )
-            }
+            class={[
+              "hover:text-white hover:bg-emerald-600",
+              (@filter.include == "needs_review" && "text-white bg-emerald-600") ||
+                "bg-white text-emerald-600"
+            ]}
           >
             Needs Review
           </.button>
@@ -114,10 +106,12 @@ defmodule FerretRescueWeb.Live.Admin do
 
   def handle_event("next", _params, socket) do
     page = socket.assigns.applications.page
-    {:noreply, push_patch(socket, to: ~p"/admin?page=#{page + 1}")}
+    params = %{page: page + 1}
+    {:noreply, push_patch(socket, to: ~p"/admin?#{params}")}
   end
 
   def handle_event("prev", _params, socket) do
+    # TODO: move to params map
     page = socket.assigns.applications.page
 
     {:noreply, push_patch(socket, to: ~p"/admin?page=#{page - 1}")}

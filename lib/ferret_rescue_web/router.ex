@@ -23,7 +23,7 @@ defmodule FerretRescueWeb.Router do
 
     get "/login", LoginController, :login
     post "/login", LoginController, :handle_login
-    get "/logout", LoginController, :logout
+    delete "/logout", LoginController, :logout
   end
 
   live_session :default,
