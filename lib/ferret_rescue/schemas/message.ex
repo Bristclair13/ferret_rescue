@@ -6,6 +6,11 @@ defmodule FerretRescue.Schemas.Message do
 
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          message: String.t(),
+          sent_at: DateTime.t()
+        }
+
   schema "messages" do
     field :message, :string
 

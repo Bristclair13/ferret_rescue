@@ -99,7 +99,7 @@ defmodule FerretRescueWeb.Live.Admin do
             </td>
             <td>
               <.link
-                navigate={~p"/admin/application/direct"}
+                navigate={~p"/admin/application/#{application.id}"}
                 class="text-black underline p-2 my-2 rounded-full"
               >
                 review
