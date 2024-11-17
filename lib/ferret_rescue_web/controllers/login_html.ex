@@ -1,4 +1,4 @@
-defmodule FerretRescueWeb.PageHTML do
+defmodule FerretRescueWeb.LoginHTML do
   @moduledoc """
   This module contains pages rendered by PageController.
 
@@ -6,5 +6,5 @@ defmodule FerretRescueWeb.PageHTML do
   """
   use FerretRescueWeb, :html
 
-  embed_templates "page_html/*"
+  embed_templates "login_html/*"
 end

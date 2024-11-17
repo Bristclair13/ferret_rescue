@@ -1,0 +1,11 @@
+<div :if={assigns[:error]}>
+  <%= @error %>
+</div>
+<.form :let={f} for={%{}} action="/auth/login" class="space-y-5 bg-white max-w-2xl mx-auto p-6">
+  <.input field={f[:email]} placeholder="Email" class="text-red-600" />
+  <.input type="password" field={f[:password]} placeholder="Password" class="text-gray-600" />
+
+  <.button class="text-center mt-4 w-2/3">
+    Login
+  </.button>
+</.form>

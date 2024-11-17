@@ -1,0 +1,22 @@
+<div class="min-h-screen bg-[url('/images/tree_bark.png')] bg-repeat">
+  <.flash_group flash={@flash} />
+  <header>
+    <nav class="relative bg-white shadow-lg p-2">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <div>
+          <p>Texas Ferret Lover's Rescue</p>
+        </div>
+        <.link
+          href={~p"/auth/logout"}
+          method="delete"
+          class="text-black underline p-2 my-2 mr-4 ml-auto rounded-full"
+        >
+          Logout
+        </.link>
+      </div>
+    </nav>
+  </header>
+  <main class="h-full p-6">
+    <%= @inner_content %>
+  </main>
+</div>

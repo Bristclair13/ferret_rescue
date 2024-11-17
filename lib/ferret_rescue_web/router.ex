@@ -14,7 +14,20 @@ defmodule FerretRescueWeb.Router do
     plug :accepts, ["json"]
   end
 
-  live_session :default, on_mount: [FerretRescueWeb.Middleware.Nav.Hook] do
+  pipeline :authenticated do
+    plug FerretRescueWeb.MiddleWare.EnsureAuthenticated.Plug
+  end
+
+  scope "/auth", FerretRescueWeb do
+    pipe_through :browser
+
+    get "/login", LoginController, :login
+    post "/login", LoginController, :handle_login
+    delete "/logout", LoginController, :logout
+  end
+
+  live_session :default,
+    on_mount: [FerretRescueWeb.Middleware.Nav.Hook] do
     scope "/", FerretRescueWeb.Live do
       pipe_through :browser
 
@@ -26,6 +39,17 @@ defmodule FerretRescueWeb.Router do
       live "/vets", Vets
       live "/faq", Faq
       live "/ferrets", Ferrets
+    end
+  end
+
+  live_session :authenticated,
+    on_mount: FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook,
+    layout: {FerretRescueWeb.Layouts, :admin} do
+    scope "/", FerretRescueWeb.Live do
+      pipe_through [:browser, :authenticated]
+
+      live "/admin", Admin
+      live "/admin/application/:id", Application
     end
   end
 

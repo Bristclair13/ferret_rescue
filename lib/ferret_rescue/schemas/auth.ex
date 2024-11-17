@@ -6,6 +6,17 @@ defmodule FerretRescue.Schemas.Auth do
 
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          can_manage_applications: boolean() | nil,
+          can_manage_ferrets: boolean() | nil,
+          can_manage_users: boolean() | nil,
+          can_manage_website: boolean() | nil,
+          email: String.t() | nil,
+          password: String.t(),
+          inserted_at: DateTime.t(),
+          updated_at: DateTime.t()
+        }
+
   schema "auth" do
     field :can_manage_applications, :boolean, default: false
     field :can_manage_ferrets, :boolean, default: false
@@ -17,7 +28,7 @@ defmodule FerretRescue.Schemas.Auth do
     timestamps()
   end
 
-  def changeset(struct, params) do
+  def changeset(struct \\ %__MODULE__{}, params) do
     struct
     |> cast(params, __schema__(:fields) -- [:id])
     |> validate_required(__schema__(:fields) -- [:id, :password, :inserted_at, :updated_at])

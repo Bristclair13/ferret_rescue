@@ -6,6 +6,50 @@ defmodule FerretRescue.Schemas.Application do
 
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          age: integer(),
+          approved: boolean(),
+          cage_info: String.t(),
+          city: String.t(),
+          diseases_info: String.t(),
+          eat_info: String.t(),
+          email: String.t(),
+          final: boolean(),
+          forever_home: String.t(),
+          fostering: boolean(),
+          heartworm_prevent: String.t(),
+          heartworm_treat: boolean(),
+          heartworms: boolean(),
+          home_type: String.t(),
+          kept_info: String.t(),
+          landlord_info: String.t() | nil,
+          legal_to_own: boolean(),
+          move_info: String.t(),
+          name: String.t(),
+          notes: String.t() | nil,
+          num_ferrets_info: String.t(),
+          other_animals: String.t(),
+          own_home: boolean(),
+          owned_before: boolean(),
+          owned_details: String.t() | nil,
+          people_at_address: String.t(),
+          phone_primary: String.t(),
+          phone_secondary: String.t() | nil,
+          play_info: String.t(),
+          proofing_info: String.t(),
+          reviewed: boolean(),
+          smoker: boolean(),
+          state: String.t(),
+          street: String.t(),
+          surrendered_details: String.t() | nil,
+          surrendered: boolean(),
+          time_at_address: String.t(),
+          toy_info: String.t(),
+          vaccines_current: boolean(),
+          vet_info: String.t(),
+          zip_code: integer()
+        }
+
   schema "applications" do
     field :age, :integer
     field :approved, :boolean, default: false
