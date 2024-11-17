@@ -2,15 +2,15 @@ defmodule FerretRescueWeb.Live.Application do
   use FerretRescueWeb, :admin_live_view
 
   alias FerretRescue.Schemas.Message
-  alias FerretRescue.Actions.GetApplication, as: Get
-  alias FerretRescue.Actions.ListMessages, as: List
+  alias FerretRescue.Actions.ListMessages
+  alias FerretRescue.Actions.GetApplication
 
   def mount(params, _session, socket) do
     application_id = params["id"]
     changeset = Message.changeset(%{})
-    messages = List.list_messages()
+    messages = ListMessages.list_messages()
 
-    application = Get.get(application_id)
+    application = GetApplication.get_application(application_id)
     {:ok, assign(socket, application: application, changeset: changeset, messages: messages)}
   end
 

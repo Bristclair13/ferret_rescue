@@ -4,8 +4,8 @@ defmodule FerretRescue.Actions.GetApplication do
   alias FerretRescue.Schemas.Application
   alias FerretRescue.Repo
 
-  @callback get(String.t()) :: Application.t() | nil
-  def get(id) do
+  @callback get_application(String.t()) :: Application.t() | nil
+  def get_application(id) do
     Repo.get(Application, id)
   end
 end

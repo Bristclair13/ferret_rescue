@@ -30,7 +30,7 @@ defmodule FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook do
 
   def on_mount(:default, _params, session, socket) do
     {:ok, auth} =
-      GetAuth.get_by(id: session["auth_id"])
+      GetAuth.get_auth_by(id: session["auth_id"])
 
     {:cont,
      assign(socket,
