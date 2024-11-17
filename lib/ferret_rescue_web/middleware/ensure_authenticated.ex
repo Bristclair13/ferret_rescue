@@ -2,21 +2,14 @@ defmodule FerretRescueWeb.MiddleWare.EnsureAuthenticated.Plug do
   import Phoenix.Controller
   import Plug.Conn
 
-  alias FerretRescue.Repo
-  alias FerretRescue.Schemas.Auth
-  alias FerretRescue.Actions.GetAuth
-
-  def init(_opts) do
-  end
+  def init(opts), do: opts
 
   def call(conn, _opts) do
-    auth_id = get_session(conn, :auth_id)
-
-    cond do
-      auth = auth_id && Repo.get(Auth, auth_id) ->
-        assign(conn, :auth, auth)
-
-      true ->
+    with auth_id when is_integer(auth_id) <- get_session(conn, :auth_id),
+         {:ok, auth} <- FerretRescue.get_auth_by(id: auth_id) do
+      assign(conn, :auth, auth)
+    else
+      _error ->
         redirect(conn, to: "/auth/login") |> halt()
     end
   end
@@ -26,15 +19,12 @@ defmodule FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook do
   @moduledoc false
   use FerretRescueWeb, :live_view
 
-  alias FerretRescue.Actions.GetAuth
-
   def on_mount(:default, _params, session, socket) do
-    {:ok, auth} =
-      GetAuth.get_auth_by(id: session["auth_id"])
-
-    {:cont,
-     assign(socket,
-       auth: auth
-     )}
+    with {:ok, auth} <- FerretRescue.get_auth_by(id: session["auth_id"]) do
+      {:cont, assign(socket, auth: auth)}
+    else
+      _error ->
+        {:halt, redirect(socket, to: "/auth/login")}
+    end
   end
 end
