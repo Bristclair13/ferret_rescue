@@ -1,7 +1,6 @@
 defmodule FerretRescueWeb.LoginController do
   use FerretRescueWeb, :controller
 
-  # TODO: not working
   def logout(conn, _params) do
     conn
     |> put_flash(:info, "You have been logged out!")

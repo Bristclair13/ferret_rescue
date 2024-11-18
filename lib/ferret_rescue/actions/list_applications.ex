@@ -4,7 +4,7 @@ defmodule FerretRescue.Actions.ListApplications do
   import Ecto.Query
 
   alias FerretRescue.Schemas.Application
-  alias FerretRescue.Pagination
+  alias FerretRescue.Utils.Pagination
 
   @callback list_applications(Keyword.t()) :: [Application.t()]
   def list_applications(opts) do

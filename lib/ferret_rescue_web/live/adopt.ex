@@ -241,7 +241,7 @@ defmodule FerretRescueWeb.Live.Adopt do
   def handle_event("submit_application", %{"application" => params}, socket) do
     case FerretRescue.submit_application(params) do
       {:ok, _application} ->
-        # TODO: send them to success page
+        # TODO: send them to home page
         :ok
 
       {:error, changeset} ->

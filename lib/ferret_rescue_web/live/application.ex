@@ -12,7 +12,7 @@ defmodule FerretRescueWeb.Live.Application do
 
     # TODO: should return {:ok, application} and should use FerretRescue
     # and handle error
-    application = GetApplication.get_application(application_id)
+    application = GetApplication.get_application_by(application_id)
     {:ok, assign(socket, application: application, changeset: changeset, messages: messages)}
   end
 

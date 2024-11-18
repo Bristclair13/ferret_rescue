@@ -11,7 +11,7 @@ defmodule FerretRescue do
 
   @behaviour Actions.GetApplication
   @impl Actions.GetApplication
-  defdelegate get_application(id), to: Actions.GetApplication
+  defdelegate get_application_by(by), to: Actions.GetApplication
 
   @behaviour Actions.GetAuth
   @impl Actions.GetAuth
@@ -27,7 +27,7 @@ defmodule FerretRescue do
 
   @behaviour Actions.ListMessages
   @impl Actions.ListMessages
-  defdelegate list_messages(), to: Actions.ListMessages
+  defdelegate list_messages(application_id), to: Actions.ListMessages
 
   @behaviour Actions.ListSitters
   @impl Actions.ListSitters

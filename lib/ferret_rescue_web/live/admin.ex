@@ -54,12 +54,22 @@ defmodule FerretRescueWeb.Live.Admin do
         </div>
         <div class="my-auto ml-auto flex">
           <div>
-            <.button phx-click="prev" class="mr-4" disabled={not @applications.has_prev}>
+            <.button
+              phx-click="prev"
+              class="mr-4 disabled:rounded-md disabled:bg-slate-400 px-3 py-2 disabled:text-sm disabled:font-semibold disabled:text-white disabled:shadow-sm"
+              disabled={not @applications.has_prev}
+            >
               Prev Page
             </.button>
           </div>
           <div>
-            <.button phx-click="next" disabled={not @applications.has_next}>Next Page</.button>
+            <.button
+              phx-click="next"
+              disabled={not @applications.has_next}
+              class="disabled:rounded-md disabled:bg-slate-400 px-3 py-2 disabled:text-sm disabled:font-semibold disabled:text-white disabled:shadow-sm"
+            >
+              Next Page
+            </.button>
           </div>
         </div>
       </div>
@@ -111,10 +121,10 @@ defmodule FerretRescueWeb.Live.Admin do
   end
 
   def handle_event("prev", _params, socket) do
-    # TODO: move to params map
     page = socket.assigns.applications.page
+    params = %{page: page - 1}
 
-    {:noreply, push_patch(socket, to: ~p"/admin?page=#{page - 1}")}
+    {:noreply, push_patch(socket, to: ~p"/admin?#{params}")}
   end
 
   def handle_event("search", %{"filter" => filter}, socket) do
