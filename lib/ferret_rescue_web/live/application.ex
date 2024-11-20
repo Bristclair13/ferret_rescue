@@ -8,7 +8,7 @@ defmodule FerretRescueWeb.Live.Application do
   def mount(params, _session, socket) do
     application_id = params["id"]
     changeset = Message.changeset(%{})
-    messages = ListMessages.list_messages()
+    messages = ListMessages.list_messages(application_id)
 
     # TODO: should return {:ok, application} and should use FerretRescue
     # and handle error
