@@ -324,10 +324,24 @@ defmodule FerretRescueWeb.Live.Application do
     """
   end
 
-  def handle_event("send_message", %{"message" => message}, socket) do
-    # TODO: need to actually insert into db, create action FerretRescue.send_message(params)
-    # on success should add back into messages (assigns) so it immediately shows
-    changeset = Message.changeset(message) |> Map.put(:action, :insert)
-    {:noreply, assign(socket, changeset: changeset)}
+  def handle_event("send_message", %{"message" => message_params}, socket) do
+    case FerretRescue.send_message(message_params) do
+      # TODO: need to actually insert into db, create action FerretRescue.send_message(params)
+      # on success should add back into messages (assigns) so it immediately shows
+      {:ok, message} ->
+        socket =
+          update(
+            socket,
+            :messages,
+            fn messages -> [message | messages] end
+          )
+
+        changeset = %Message{}
+
+        {:noreply, assign(socket, :form, to_form(changeset))}
+
+      {:error, changeset} ->
+        {:noreply, assign(socket, :form, to_form(changeset))}
+    end
   end
 end

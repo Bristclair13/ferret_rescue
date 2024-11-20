@@ -36,4 +36,12 @@ defmodule FerretRescue do
   @behaviour Actions.ListTopics
   @impl Actions.ListTopics
   defdelegate list_topics(), to: Actions.ListTopics
+
+  @behaviour Actions.SubmitApplication
+  @impl Actions.SubmitApplication
+  defdelegate submit_application(attrs), to: Actions.SubmitApplication
+
+  @behaviour Actions.SendMessage
+  @impl Actions.SendMessage
+  defdelegate send_message(attrs), to: Actions.SendMessage
 end

@@ -241,8 +241,9 @@ defmodule FerretRescueWeb.Live.Adopt do
   def handle_event("submit_application", %{"application" => params}, socket) do
     case FerretRescue.submit_application(params) do
       {:ok, _application} ->
-        # TODO: send them to home page
-        :ok
+        socket = put_flash(socket, :info, "You sucessfully submitted your application!")
+
+        {:noreply, push_navigate(socket, to: ~p"/")}
 
       {:error, changeset} ->
         {:noreply, assign(socket, changeset: changeset)}

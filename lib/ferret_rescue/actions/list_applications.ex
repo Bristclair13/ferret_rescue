@@ -6,7 +6,7 @@ defmodule FerretRescue.Actions.ListApplications do
   alias FerretRescue.Schemas.Application
   alias FerretRescue.Utils.Pagination
 
-  @callback list_applications(Keyword.t()) :: [Application.t()]
+  @callback list_applications(Keyword.t()) :: map()
   def list_applications(opts) do
     from(a in Application)
     |> filter(opts[:filter])
