@@ -240,6 +240,7 @@ defmodule FerretRescueWeb.Live.Adopt do
 
   def handle_event("submit_application", %{"application" => params}, socket) do
     case FerretRescue.submit_application(params) do
+
       {:ok, _application} ->
         socket = put_flash(socket, :info, "You sucessfully submitted your application!")
 
