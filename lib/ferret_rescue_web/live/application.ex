@@ -2,17 +2,15 @@ defmodule FerretRescueWeb.Live.Application do
   use FerretRescueWeb, :live_view
 
   alias FerretRescue.Schemas.Message
-  alias FerretRescue.Actions.ListMessages
-  alias FerretRescue.Actions.GetApplication
 
   def mount(params, _session, socket) do
     application_id = params["id"]
     changeset = Message.changeset(%{})
-    messages = ListMessages.list_messages(application_id)
+    messages = FerretRescue.list_messages(application_id)
 
     # TODO: should return {:ok, application} and should use FerretRescue
     # and handle error
-    application = GetApplication.get_application_by(application_id)
+    {:ok, application} = FerretRescue.get_application_by(id: application_id)
     {:ok, assign(socket, application: application, changeset: changeset, messages: messages)}
   end
 
@@ -52,8 +50,8 @@ defmodule FerretRescueWeb.Live.Application do
           </thead>
           <tbody :for={message <- @messages}>
             <tr>
-              <td><%= message.sent_at %></td>
-              <td><%= message.message %></td>
+              <td class="border border-neutral-800 bg-white px-24 py-4"><%= message.sent_at %></td>
+              <td class="border border-neutral-800 bg-white px-24 py-4"><%= message.message %></td>
             </tr>
           </tbody>
         </table>
@@ -328,17 +326,10 @@ defmodule FerretRescueWeb.Live.Application do
     case FerretRescue.send_message(message_params) do
       # TODO: need to actually insert into db, create action FerretRescue.send_message(params)
       # on success should add back into messages (assigns) so it immediately shows
-      {:ok, message} ->
-        socket =
-          update(
-            socket,
-            :messages,
-            fn messages -> [message | messages] end
-          )
-
-        changeset = %Message{}
-
-        {:noreply, assign(socket, :form, to_form(changeset))}
+      {:ok, _message} ->
+        application_id = socket.assigns.application.id
+        messages = FerretRescue.list_messages(application_id)
+        {:noreply, assign(socket, messages: messages)}
 
       {:error, changeset} ->
         {:noreply, assign(socket, :form, to_form(changeset))}

@@ -9,9 +9,9 @@ defmodule FerretRescue do
   @impl Actions.ListVets
   defdelegate list_vets(), to: Actions.ListVets
 
-  @behaviour Actions.GetApplication
-  @impl Actions.GetApplication
-  defdelegate get_application_by(by), to: Actions.GetApplication
+  @behaviour Actions.GetApplicationBy
+  @impl Actions.GetApplicationBy
+  defdelegate get_application_by(by), to: Actions.GetApplicationBy
 
   @behaviour Actions.GetAuth
   @impl Actions.GetAuth

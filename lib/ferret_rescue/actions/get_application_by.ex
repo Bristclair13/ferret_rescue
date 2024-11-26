@@ -1,4 +1,4 @@
-defmodule FerretRescue.Actions.GetApplication do
+defmodule FerretRescue.Actions.GetApplicationBy do
   @behaviour __MODULE__
 
   alias FerretRescue.Schemas.Application
