@@ -103,6 +103,11 @@ defmodule FerretRescueWeb.Live.Adopt do
             ]}
           />
           <.input
+            field={f[:owned_details]}
+            type="textarea"
+            label="When and how many? Do you still have them? If not, where are they now?"
+          />
+          <.input
             field={f[:other_animals]}
             label="What animals/pets do you currently own?"
             type="textarea"
@@ -132,6 +137,12 @@ defmodule FerretRescueWeb.Live.Adopt do
               {"Yes", "true"},
               {"No", "false"}
             ]}
+          />
+
+          <.input
+            field={f[:surrendered_details]}
+            label="Please give details. When? Why?"
+            type="textarea"
           />
 
           <h3 class="text-2xl">How much do you know about ferrets?</h3>
@@ -238,8 +249,8 @@ defmodule FerretRescueWeb.Live.Adopt do
     """
   end
 
-  def handle_event("submit_application", %{"application" => params}, socket) do
-    case FerretRescue.submit_application(params) do
+  def handle_event("submit_application", params, socket) do
+    case FerretRescue.submit_application(params["application"]) do
       {:ok, _application} ->
         socket
         |> push_navigate(to: ~p"/")
