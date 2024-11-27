@@ -3,9 +3,9 @@ defmodule FerretRescue.Actions.SendMessage do
   alias FerretRescue.Repo
 
   @callback send_message(map()) :: {:ok, %Message{}} | {:error, Ecto.Changeset.t()}
-  def send_message(attrs \\ %{}) do
+  def send_message(params) do
     %Message{}
-    |> Message.changeset(attrs)
+    |> Message.changeset(params)
     |> Repo.insert()
   end
 end

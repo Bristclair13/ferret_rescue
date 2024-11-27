@@ -322,13 +322,15 @@ defmodule FerretRescueWeb.Live.Application do
     """
   end
 
-  def handle_event("send_message", %{"message" => message_params}, socket) do
-    case FerretRescue.send_message(message_params) do
-      # TODO: need to actually insert into db, create action FerretRescue.send_message(params)
-      # on success should add back into messages (assigns) so it immediately shows
+  def handle_event("send_message", %{"message" => params}, socket) do
+    application_id = socket.assigns.application.id
+
+    params = Map.put(params, "application_id", application_id)
+
+    case FerretRescue.send_message(params) do
       {:ok, _message} ->
-        application_id = socket.assigns.application.id
         messages = FerretRescue.list_messages(application_id)
+
         {:noreply, assign(socket, messages: messages)}
 
       {:error, changeset} ->

@@ -54,6 +54,8 @@ defmodule FerretRescueWeb do
       use Phoenix.LiveView,
         layout: {FerretRescueWeb.Layouts, :app}
 
+      import FerretRescueWeb.Components.Helpers
+
       unquote(html_helpers())
     end
   end
