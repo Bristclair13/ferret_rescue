@@ -18,8 +18,8 @@ defmodule FerretRescueWeb.Live.Application do
     ~H"""
     <div class="bg-white">
       <div class="max-w-7xl mx-auto">
-        <div><%= @application.name %></div>
-        <div class="flex gap-x-3">
+        <div class="text-2xl pt-6"><%= @application.name %></div>
+        <div class="flex gap-x-3 mt-6">
           <.link href={~p"/admin"} class="text-white bg-blue-500 rounded-lg my-auto p-1">
             Go Back
           </.link>
