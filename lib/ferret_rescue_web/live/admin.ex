@@ -99,10 +99,10 @@ defmodule FerretRescueWeb.Live.Admin do
             <td class="border border-neutral-800 bg-white px-12 py-4">
               <%= if application.final, do: "yes", else: "no" %>
             </td>
-            <td>
+            <td class="border border-neutral-800 bg-white">
               <.link
                 navigate={~p"/admin/application/#{application.id}"}
-                class="text-black underline p-2 my-2 rounded-full"
+                class="hover:underline text-blue-400 hover:text-blue-500 mx-6"
               >
                 review
               </.link>

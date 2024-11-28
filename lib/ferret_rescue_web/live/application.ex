@@ -16,30 +16,70 @@ defmodule FerretRescueWeb.Live.Application do
 
   def render(assigns) do
     ~H"""
-    <div>
-      <div><%= @application.name %></div>
-      <div class="flex gap-x-3">
-        <.button>Go Back</.button>
-        <.button>Approve</.button>
-        <.button>Decline</.button>
+    <div class="bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div><%= @application.name %></div>
+        <div class="flex gap-x-3">
+          <.link href={~p"/admin"} class="text-white bg-blue-500 rounded-lg my-auto p-1">
+            Go Back
+          </.link>
+          <.button>Approve</.button>
+          <.button>Decline</.button>
+        </div>
+        <div class="flex flex-col mt-6">
+          <h2 class="font-medium text-lg">Status</h2>
+          <p>Approved: <%= if @application.approved, do: "yes", else: "no" %></p>
+          <div class="flex items-center">
+            <p>Reviewed:</p>
+            <p
+              :if={is_nil(@application.reviewed) or @application.reviewed == false}
+              class="p-2 shadow-sm h-4 ml-2 bg-gray-300"
+            >
+            </p>
+            <svg
+              :if={@application.reviewed}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-4 ml-2 bg-green-600"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </div>
+          <div class="flex items-center">
+            <p>Final:</p>
+            <p
+              :if={is_nil(@application.final) or @application.final == false}
+              class="p-2 shadow-sm h-4 ml-2 bg-gray-300"
+            >
+            </p>
+            <svg
+              :if={@application.final}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-4 ml-2 bg-gray-300"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-col mt-6">
-        <h2>Status</h2>
-        <p>Approved: <%= @application.approved %></p>
-        <p>Reviewed: <%= @application.reviewed %></p>
-        <p>Final: <%= @application.final %></p>
-      </div>
-      <div class="flex flex-col">
-        <h2>Messages</h2>
+      <div class="flex flex-col max-w-7xl mx-auto  mt-6">
+        <h2 class="font-medium text-lg">Messages</h2>
 
         <.form :let={f} for={@changeset} phx-submit="send_message">
           <.input field={f[:message]} type="textarea" label="send message to applicant" />
-          <.button class="mt-4">
+          <.button class="mt-4 p-2">
             Send
           </.button>
         </.form>
       </div>
-      <div class="flex flex-col">
+      <div class="flex flex-col max-w-7xl mx-auto mt-6">
         <p>Message history</p>
         <table>
           <thead>
@@ -56,7 +96,7 @@ defmodule FerretRescueWeb.Live.Application do
           </tbody>
         </table>
       </div>
-      <div class="flex flex-col max-w-6xl mx-auto">
+      <div class="flex flex-col max-w-7xl mx-auto">
         <p class="text-2xl mb-2 mt-6">Application</p>
         <table>
           <tr>
