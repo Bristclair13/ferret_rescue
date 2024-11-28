@@ -72,6 +72,12 @@ defmodule FerretRescueWeb.Live.Adopt do
             ]}
           />
           <.input
+            :if={f[:own_home].source.value}
+            field={f[:landlord_info]}
+            type="textarea"
+            label="Please provide name, address, and phone number of your landlord."
+          />
+          <.input
             field={f[:smoker]}
             type="select"
             label="Is this a smoker's home?"
@@ -103,6 +109,7 @@ defmodule FerretRescueWeb.Live.Adopt do
             ]}
           />
           <.input
+            :if={f[:owned_before].source.value}
             field={f[:owned_details]}
             type="textarea"
             label="When and how many? Do you still have them? If not, where are they now?"
@@ -140,6 +147,7 @@ defmodule FerretRescueWeb.Live.Adopt do
           />
 
           <.input
+            :if={f[:surrendered].source.value}
             field={f[:surrendered_details]}
             label="Please give details. When? Why?"
             type="textarea"

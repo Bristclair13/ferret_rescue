@@ -330,11 +330,12 @@ defmodule FerretRescueWeb.Live.Application do
     case FerretRescue.send_message(params) do
       {:ok, _message} ->
         messages = FerretRescue.list_messages(application_id)
+        changeset = Message.changeset(%{})
 
-        {:noreply, assign(socket, messages: messages)}
+        {:noreply, assign(socket, messages: messages, changeset: changeset)}
 
       {:error, changeset} ->
-        {:noreply, assign(socket, :form, to_form(changeset))}
+        {:noreply, assign(socket, changeset: changeset)}
     end
   end
 end
