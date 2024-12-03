@@ -16,65 +16,108 @@ defmodule FerretRescueWeb.Live.Application do
 
   def render(assigns) do
     ~H"""
-    <div class="bg-white">
+    <div class="bg-white pb-4">
       <div class="max-w-7xl mx-auto">
         <div class="text-2xl pt-6"><%= @application.name %></div>
+
         <div class="flex gap-x-3 mt-6">
-          <.link href={~p"/admin"} class="text-white bg-blue-500 rounded-lg my-auto p-1">
+          <.link
+            href={~p"/admin"}
+            class="text-white bg-blue-500 hover:bg-blue-600 rounded-lg my-auto p-1"
+          >
             Go Back
           </.link>
-          <.button>Approve</.button>
-          <.button>Decline</.button>
+          <.button
+            phx-click="approve"
+            class="text-white bg-green-500 hover:bg-green-600 rounded-lg my-auto p-1"
+          >
+            Approve
+          </.button>
+          <.button
+            phx-click="decline"
+            class="text-white bg-red-500 hover:bg-red-600 rounded-lg my-auto p-1"
+          >
+            Decline
+          </.button>
         </div>
+
         <div class="flex flex-col mt-6">
           <h2 class="font-medium text-lg">Status</h2>
           <p>Approved: <%= if @application.approved, do: "yes", else: "no" %></p>
           <div class="flex items-center">
-            <p>Reviewed:</p>
-            <p
-              :if={is_nil(@application.reviewed) or @application.reviewed == false}
-              class="p-2 shadow-sm h-4 ml-2 bg-gray-300"
-            >
-            </p>
-            <svg
-              :if={@application.reviewed}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="h-4 ml-2 bg-green-600"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-            </svg>
+            <p class="mr-2">Reviewed:</p>
+            <div class="flex h-6 shrink-0 items-center">
+              <div class="group grid size-4 grid-cols-1">
+                <input
+                  disabled={@application.reviewed == false}
+                  id="person-5"
+                  name="person-5"
+                  type="checkbox"
+                  class="col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-green-500 checked:bg-green-500 indeterminate:border-green-500 indeterminate:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bg-green-500 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
+                />
+                <svg
+                  class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-[:disabled]:stroke-gray-950/25"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                >
+                  <path
+                    class="opacity-0 group-has-[:checked]:opacity-100"
+                    d="M3 8L6 11L11 3.5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    class="opacity-0 group-has-[:indeterminate]:opacity-100"
+                    d="M3 7H11"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
           </div>
           <div class="flex items-center">
-            <p>Final:</p>
-            <p
-              :if={is_nil(@application.final) or @application.final == false}
-              class="p-2 shadow-sm h-4 ml-2 bg-gray-300"
-            >
-            </p>
-            <svg
-              :if={@application.final}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="h-4 ml-2 bg-gray-300"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-            </svg>
+            <p class="mr-2">Final:</p>
+            <div class="flex h-6 shrink-0 items-center">
+              <div class="group grid size-4 grid-cols-1">
+                <input
+                  disabled={@application.final == false}
+                  id="person-5"
+                  name="person-5"
+                  type="checkbox"
+                  class="col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-green-500 checked:bg-green-500 indeterminate:border-green-500 indeterminate:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bg-green-500 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
+                />
+                <svg
+                  class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-[:disabled]:stroke-gray-950/25"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                >
+                  <path
+                    class="opacity-0 group-has-[:checked]:opacity-100"
+                    d="M3 8L6 11L11 3.5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    class="opacity-0 group-has-[:indeterminate]:opacity-100"
+                    d="M3 7H11"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="flex flex-col max-w-7xl mx-auto  mt-6">
         <h2 class="font-medium text-lg">Messages</h2>
 
         <.form :let={f} for={@changeset} phx-submit="send_message">
           <.input field={f[:message]} type="textarea" label="send message to applicant" />
-          <.button class="mt-4 p-2">
+          <.button class="mt-4 px-2 py-1 text-white bg-green-500 hover:bg-green-600 rounded-md">
             Send
           </.button>
         </.form>
@@ -97,7 +140,7 @@ defmodule FerretRescueWeb.Live.Application do
         </table>
       </div>
       <div class="flex flex-col max-w-7xl mx-auto">
-        <p class="text-2xl mb-2 mt-6">Application</p>
+        <p class="text-2xl mt-6">Application</p>
         <table>
           <tr>
             <td class="border border-neutral-800 bg-slate-200 px-12 py-4 font-bold">Full Name</td>
@@ -377,5 +420,25 @@ defmodule FerretRescueWeb.Live.Application do
       {:error, changeset} ->
         {:noreply, assign(socket, changeset: changeset)}
     end
+  end
+
+  def handle_event("approve", _params, socket) do
+    application = socket.assigns.application
+
+    application = Map.put(application, :final, true)
+    application = Map.put(application, :approved, true)
+    application = Map.put(application, :reviewed, true)
+
+    {:noreply, assign(socket, application: application)}
+  end
+
+  def handle_event("decline", _params, socket) do
+    application = socket.assigns.application
+
+    application = Map.put(application, :final, true)
+    application = Map.put(application, :approved, false)
+    application = Map.put(application, :reviewed, true)
+
+    {:noreply, assign(socket, application: application)}
   end
 end
