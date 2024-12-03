@@ -37,9 +37,9 @@ defmodule FerretRescueWeb.Live.Admin do
             phx-click="change_include_filter"
             phx-value-include="needs_review"
             class={[
-              "hover:text-white hover:bg-emerald-600",
-              (@filter.include == "needs_review" && "text-white bg-emerald-600") ||
-                "bg-white text-emerald-600"
+              "hover:text-white hover:bg-emerald-600 p-1",
+              (@filter.include == "needs_review" && "text-white bg-emerald-600 p-1") ||
+                "bg-white text-emerald-700 p-1"
             ]}
           >
             Needs Review
@@ -47,7 +47,11 @@ defmodule FerretRescueWeb.Live.Admin do
           <.button
             phx-click="change_include_filter"
             phx-value-include="all"
-            class="bg-white text-emerald-600 hover:text-white hover:bg-emerald-600"
+            class={[
+              "hover:text-white hover:bg-emerald-600 p-1",
+              (@filter.include == "all" && "text-white bg-emerald-600 p-1") ||
+                "bg-white text-emerald-700 p-1"
+            ]}
           >
             All Applications
           </.button>
