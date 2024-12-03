@@ -229,16 +229,7 @@ defmodule FerretRescueWeb.CoreComponents do
 
   def button(assigns) do
     ~H"""
-    <button
-      type={@type}
-      class={[
-        "phx-submit-loading:opacity-75 rounded-lg bg-emerald-600 hover:bg-emerald-700 py-2",
-        "text-sm font-semibold leading-6 text-white active:text-white/80",
-        @class
-      ]}
-      {@rest}
-      disabled={@disabled}
-    >
+    <button type={@type} class={@class} {@rest} disabled={@disabled}>
       <%= render_slot(@inner_block) %>
     </button>
     """

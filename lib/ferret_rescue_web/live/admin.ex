@@ -60,7 +60,7 @@ defmodule FerretRescueWeb.Live.Admin do
           <div>
             <.button
               phx-click="prev"
-              class="mr-4 disabled:rounded-md disabled:bg-slate-400 px-3 py-2 disabled:text-sm disabled:font-semibold disabled:text-white disabled:shadow-sm"
+              class="mr-4 text-white bg-emerald-600 rounded-md text-sm font-semibold shadow-sm disabled:rounded-md disabled:bg-slate-400 px-3 py-2 disabled:text-sm disabled:font-semibold disabled:text-white disabled:shadow-sm"
               disabled={not @applications.has_prev}
             >
               Prev Page
@@ -70,7 +70,7 @@ defmodule FerretRescueWeb.Live.Admin do
             <.button
               phx-click="next"
               disabled={not @applications.has_next}
-              class="disabled:rounded-md disabled:bg-slate-400 px-3 py-2 disabled:text-sm disabled:font-semibold disabled:text-white disabled:shadow-sm"
+              class="text-white bg-emerald-600 rounded-md text-sm font-semibold shadow-sm disabled:rounded-md disabled:bg-slate-400 px-3 py-2 disabled:text-sm disabled:font-semibold disabled:text-white disabled:shadow-sm"
             >
               Next Page
             </.button>
