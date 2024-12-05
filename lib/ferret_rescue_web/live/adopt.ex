@@ -2,6 +2,7 @@ defmodule FerretRescueWeb.Live.Adopt do
   use FerretRescueWeb, :live_view
 
   alias FerretRescue.Schemas.Application
+  alias Phoenix.HTML.Form
 
   def mount(_params, _session, socket) do
     changeset = Application.changeset(%{})
@@ -71,12 +72,14 @@ defmodule FerretRescueWeb.Live.Adopt do
               {"No", "false"}
             ]}
           />
-          <.input
-            :if={f[:own_home].source.value}
-            field={f[:landlord_info]}
-            type="textarea"
-            label="Please provide name, address, and phone number of your landlord."
-          />
+          <div>
+            <.input
+              :if={Form.input_value(f, :own_home)}
+              field={f[:landlord_info]}
+              type="textarea"
+              label="Please provide name, address, and phone number of your landlord."
+            />
+          </div>
           <.input
             field={f[:smoker]}
             type="select"
@@ -109,7 +112,7 @@ defmodule FerretRescueWeb.Live.Adopt do
             ]}
           />
           <.input
-            :if={f[:owned_before].source.value}
+            :if={Form.input_value(f, :owned_before)}
             field={f[:owned_details]}
             type="textarea"
             label="When and how many? Do you still have them? If not, where are they now?"
@@ -147,7 +150,7 @@ defmodule FerretRescueWeb.Live.Adopt do
           />
 
           <.input
-            :if={f[:surrendered].source.value}
+            :if={Form.input_value(f, :surrendered)}
             field={f[:surrendered_details]}
             label="Please give details. When? Why?"
             type="textarea"
@@ -244,12 +247,15 @@ defmodule FerretRescueWeb.Live.Adopt do
           />
         </div>
         <div class="flex mt-6">
-          <input type="checkbox" id="confiming" name="confirming" value="confirming" class="mr-1" />
+          <.input field={f[:accept_terms]} type="checkbox" checked={true} class="mr-1" />
           <legend>
             By selecting this box and clicking the submit button below I am confirming that I understand ferrets are not caged animals, they are not like hamsters and mice, that they must have time out of a cage daily for their well being both physically and mentally and that they do need human interaction with their play. I am ready to commit to giving the proper time and care to the ferret and I realize they depend completely on my schedule to determine when they will play, sleep and eat. Furthermore, I submit that my answers to the questions above are truthful and accurate to the best of my ability.
           </legend>
         </div>
-        <.button class="mt-4">
+        <.button
+          disabled={Form.input_value(f, :accept_terms)}
+          class="mx-auto mt-4 p-2 bg-emerald-600 hover:bg-emerald-700 rounded-md text-white disabled:bg-gray-500"
+        >
           Submit
         </.button>
       </.form>

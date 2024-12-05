@@ -7,6 +7,24 @@
           <p>Texas Ferret Lover's Rescue</p>
         </div>
         <.link
+          navigate={~p"/admin"}
+          class={[
+            "font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100",
+            @active_tab == :application && "bg-emerald-200"
+          ]}
+        >
+          Applications
+        </.link>
+        <.link
+          navigate={~p"/admin/users"}
+          class={[
+            "font-light text-zinc-500 px-2 py-1 hover:bg-emerald-100",
+            @active_tab == :users && "bg-emerald-200"
+          ]}
+        >
+          Users
+        </.link>
+        <.link
           href={~p"/auth/logout"}
           method="delete"
           class="text-black underline p-2 my-2 mr-4 ml-auto rounded-full"

@@ -42,14 +42,20 @@ defmodule FerretRescueWeb.Router do
     end
   end
 
+  hooks = [
+    FerretRescueWeb.Middleware.Admin.Nav.Hook,
+    FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook
+  ]
+
   live_session :authenticated,
-    on_mount: FerretRescueWeb.MiddleWare.EnsureAuthenticated.Hook,
+    on_mount: hooks,
     layout: {FerretRescueWeb.Layouts, :admin} do
     scope "/", FerretRescueWeb.Live do
       pipe_through [:browser, :authenticated]
 
       live "/admin", Admin
       live "/admin/application/:id", Application
+      live "/admin/users", Users
     end
   end
 
