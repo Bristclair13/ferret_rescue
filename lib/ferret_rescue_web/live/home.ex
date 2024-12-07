@@ -103,7 +103,7 @@ defmodule FerretRescueWeb.Live.Home do
       </div>
       <div class="flex flex-col w-1/2">
         <img src="/images/amazon-smile.png" class="pl-4" />
-        <div class="shadow-lg drop-shadow-lg ml-4 mt-6 bg-white">
+        <div class="shadow-lg drop-shadow-lg ml-4 mt-6 bg-white py-6">
           <p class="text-center text-2xl">We are distributors for the following food brand</p>
           <img src="/images/tf-logo.jpg" class="w-36 h-24 mx-auto" />
         </div>

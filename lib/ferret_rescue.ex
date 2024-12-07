@@ -44,4 +44,8 @@ defmodule FerretRescue do
   @behaviour Actions.SendMessage
   @impl Actions.SendMessage
   defdelegate send_message(attrs), to: Actions.SendMessage
+
+  @behaviour Actions.ListUsers
+  @impl Actions.ListUsers
+  defdelegate list_users(), to: Actions.ListUsers
 end

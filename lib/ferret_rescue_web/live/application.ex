@@ -8,8 +8,6 @@ defmodule FerretRescueWeb.Live.Application do
     changeset = Message.changeset(%{})
     messages = FerretRescue.list_messages(application_id)
 
-    # TODO: should return {:ok, application} and should use FerretRescue
-    # and handle error
     {:ok, application} = FerretRescue.get_application_by(id: application_id)
     {:ok, assign(socket, application: application, changeset: changeset, messages: messages)}
   end
