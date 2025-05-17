@@ -17,6 +17,10 @@ defmodule FerretRescue do
   @impl Actions.GetAuth
   defdelegate get_auth_by(by), to: Actions.GetAuth
 
+  @behaviour Actions.CreateAuth
+  @impl Actions.CreateAuth
+  defdelegate create_auth(params), to: Actions.CreateAuth
+
   @behaviour Actions.ListApplications
   @impl Actions.ListApplications
   defdelegate list_applications(opts), to: Actions.ListApplications
